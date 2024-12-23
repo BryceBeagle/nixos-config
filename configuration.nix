@@ -133,6 +133,7 @@ in
     ];
     home.stateVersion = "24.05";
     
+    programs.home-manager.enable = true;
 
     # https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data#w_what-information-is-stored-in-my-profile
     home.persistence."/persist/home/ignormies" = {
