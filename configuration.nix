@@ -158,6 +158,8 @@ in
         ".mozilla/firefox/default/storage.sqlite"
         # Window size and positions
         ".mozilla/firefox/default/xulstore.json"
+	# Extension configuration
+        ".mozilla/firefox/default/extension-settings.json"
       ];
       allowOther = true;
     };
