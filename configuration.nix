@@ -139,6 +139,7 @@ in
       directories = [
         ".ssh"
         ".mozilla/firefox/default/extensions"
+	"git"
       ];
       files = [
         ".mozilla/firefox/default/cookies.sqlite"
