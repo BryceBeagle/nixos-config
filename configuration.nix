@@ -164,6 +164,12 @@ in
       allowOther = true;
     };
 
+    dconf.settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+    };
+
     programs.zsh = {
       enable = true;
       enableCompletion = true;
