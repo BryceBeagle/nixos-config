@@ -176,6 +176,12 @@ in
       syntaxHighlighting.enable = true;
     };
 
+    programs.git = {
+      enable = true;
+      userEmail = "bryce.beagle@gmail.com";
+      userName = "ignormies";
+    };
+
     programs.firefox = {
       enable = true;
       package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
