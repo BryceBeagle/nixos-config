@@ -235,6 +235,12 @@ in
           "Wikipedia (en)".metaData.hidden = true;
 	};
         settings = {
+          # First launch
+	  "app.normandy.first_run" = false;
+          "browser.aboutwelcome.enabled" = false;
+	  "browser.rights.3.shown" = true;
+	  "datareporting.policy.dataSubmissionPolicyBypassNotification" = true;
+
 	  # New tab page junk
 	  "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
 	  "browser.newtabpage.activity-stream.feeds.weatherfeed" = false;
