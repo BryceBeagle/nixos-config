@@ -140,6 +140,7 @@ in
     # https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data#w_what-information-is-stored-in-my-profile
     home.persistence."/persist/home/ignormies" = {
       directories = [
+        ".config/discord"
         ".ssh"
         ".mozilla/firefox/default/extensions"
 	"git"
