@@ -33,6 +33,8 @@ in
     ];
   };
 
+  # Without this, impermanance makes sudo give lecture every reboot
+  security.sudo.extraConfig = "Defaults lecture = never";
 
   networking.hostName = "poundcake"; # Define your hostname.
   # Pick only one of the below networking options.
