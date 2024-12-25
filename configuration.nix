@@ -150,14 +150,10 @@ in
         ".mozilla/firefox/default/content-prefs.sqlite"
         # Browser history and bookmarks
         ".mozilla/firefox/default/places.sqlite"
-        # Session tabs and windows
-        ".mozilla/firefox/default/sessionstore.jsonlz4"
         # I guess this is useful? 
         # https://bugzilla.mozilla.org/show_bug.cgi?id=1511384
         # https://developer.mozilla.org/en-US/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria
         ".mozilla/firefox/default/storage.sqlite"
-        # Window size and positions
-        ".mozilla/firefox/default/xulstore.json"
 	# Extension configuration
         ".mozilla/firefox/default/extension-settings.json"
       ];
@@ -266,6 +262,9 @@ in
 
 	  # Don't try to store passwords. Using BitWarden for this
 	  "signon.rememberSignons" = false;
+
+	  # Don't worry about missing session files (deleted via impermanence)
+	  "browser.sessionstore.max_resumed_crashes" = -1;
 	};
       };
     };
