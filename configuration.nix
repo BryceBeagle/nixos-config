@@ -164,6 +164,9 @@ in
         ".mozilla/firefox/default/storage.sqlite"
 	# Extension configuration
         ".mozilla/firefox/default/extension-settings.json"
+
+        # gh CLI stores credentials here
+	".config/gh/hosts.yml"
       ];
       allowOther = true;
     };
@@ -187,6 +190,12 @@ in
       enable = true;
       userEmail = "bryce.beagle@gmail.com";
       userName = "ignormies";
+    };
+
+    programs.gh = {
+      enable = true;
+
+      settings.git_protocol = "ssh";
     };
 
     programs.neovim = {
