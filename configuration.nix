@@ -52,23 +52,22 @@ in
     # useXkbConfig = true; # use xkb.options in tty.
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.xserver = {
+    enable = true;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.excludePackages = [ pkgs.xterm ];
+    excludePackages = [ pkgs.xterm ];
+
+    xkb.options = "ctrl:nocaps";
+  };
+
   services.gnome.core-utilities.enable = false;
   environment.gnome.excludePackages = with pkgs; [
     gnome.gnome-shell-extensions
     gnome-tour
   ];
   
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
   # Enable sound.
   hardware.pulseaudio.enable = false;
   services.pipewire = {
