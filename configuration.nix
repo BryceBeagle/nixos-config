@@ -260,6 +260,10 @@ in
 	search.force = true;
 
 	search.engines = {
+          "GitHub" = {
+            urls = [{template = "https://github.com/search?q={searchTerms}&type=code";}];
+            definedAliases = ["cs"];
+          };
 
 	  # Hide the other useless search engines from the bottom
           "Amazon.com".metaData.hidden = true;
@@ -268,6 +272,7 @@ in
           "eBay".metaData.hidden = true;
           "Wikipedia (en)".metaData.hidden = true;
 	};
+
         settings = {
           # First launch
 	  "app.normandy.first_run" = false;
