@@ -85,6 +85,7 @@ in
     just
     neovim
     tree
+    unzip
     wget
 
     # Gnome tools
