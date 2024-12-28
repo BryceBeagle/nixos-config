@@ -166,6 +166,9 @@ in
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
       };
+      "org/gnome/desktop/peripherals/touchpad" = {
+        natural-scroll = false;
+      };
     };
 
     programs.zsh = {
