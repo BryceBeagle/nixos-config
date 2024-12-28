@@ -82,6 +82,7 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     curl
+    jq
     just
     neovim
     ripgrep
