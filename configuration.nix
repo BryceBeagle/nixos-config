@@ -149,7 +149,7 @@ in
         ".config/discord"
         ".ssh"
         ".mozilla/firefox/default/extensions"
-	"git"
+        "git"
       ];
       files = [
         ".mozilla/firefox/default/cookies.sqlite"
@@ -163,11 +163,11 @@ in
         # https://bugzilla.mozilla.org/show_bug.cgi?id=1511384
         # https://developer.mozilla.org/en-US/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria
         ".mozilla/firefox/default/storage.sqlite"
-	# Extension configuration
+        # Extension configuration
         ".mozilla/firefox/default/extension-settings.json"
 
         # gh CLI stores credentials here
-	".config/gh/hosts.yml"
+        ".config/gh/hosts.yml"
       ];
       allowOther = true;
     };
@@ -211,7 +211,7 @@ in
         nvim-lspconfig
         nvim-treesitter.withAllGrammars
 
-	{
+        {
           plugin = catppuccin-nvim;
           config = "colorscheme catppuccin-macchiato";
         }
@@ -245,28 +245,28 @@ in
             Fingerprinting = true;
           };
           ExtensionSettings = {
-	    # Would like to enable, but doing so prevents access to about:debugging
-	    # https://bugzilla.mozilla.org/show_bug.cgi?id=1778559
-	    # 
-	    # "*" = {
-	    #   blocked_install_message = "Modify the NixOS config dingus!";
-	    #   installation_mode = "blocked";
-	    # };
+            # Would like to enable, but doing so prevents access to about:debugging
+            # https://bugzilla.mozilla.org/show_bug.cgi?id=1778559
+            # 
+            # "*" = {
+            #   blocked_install_message = "Modify the NixOS config dingus!";
+            #   installation_mode = "blocked";
+            # };
 
             # https://www.reddit.com/r/firefox/comments/1afja73/how_to_get_an_extensions_name_gpo/
 
             "addon@darkreader.org" = {
-	      install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
               installation_mode = "force_installed";
-	    };
-	    "uBlock0@raymondhill.net" = {
-	      install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
+            };
+            "uBlock0@raymondhill.net" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
               installation_mode = "force_installed";
-	    };
-	    "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-	      install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+            };
+            "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
               installation_mode = "force_installed";
-	    };
+            };
           };
         };
       };
@@ -274,59 +274,59 @@ in
       profiles.default = {
         # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.firefox.profiles._name_.containersForce
         containersForce = true;
-	# https://nix-community.github.io/home-manager/options.xhtml#opt-programs.firefox.profiles._name_.search.force
-	search.force = true;
+        # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.firefox.profiles._name_.search.force
+        search.force = true;
 
-	search.engines = {
+        search.engines = {
           "GitHub" = {
             urls = [{template = "https://github.com/search?q={searchTerms}&type=code";}];
             definedAliases = ["cs"];
           };
 
-	  # Hide the other useless search engines from the bottom
+          # Hide the other useless search engines from the bottom
           "Amazon.com".metaData.hidden = true;
           "Bing".metaData.hidden = true;
           "DuckDuckGo".metaData.hidden = true;
           "eBay".metaData.hidden = true;
           "Wikipedia (en)".metaData.hidden = true;
-	};
+        };
 
         settings = {
           # First launch
-	  "app.normandy.first_run" = false;
+          "app.normandy.first_run" = false;
           "browser.aboutwelcome.enabled" = false;
-	  "browser.rights.3.shown" = true;
-	  "datareporting.policy.dataSubmissionPolicyBypassNotification" = true;
+          "browser.rights.3.shown" = true;
+          "datareporting.policy.dataSubmissionPolicyBypassNotification" = true;
 
-	  # New tab page junk
-	  "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
-	  "browser.newtabpage.activity-stream.feeds.weatherfeed" = false;
+          # New tab page junk
+          "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
+          "browser.newtabpage.activity-stream.feeds.weatherfeed" = false;
           "browser.newtabpage.activity-stream.showSponsored" = false;
           "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
-	  "browser.newtabpage.activity-stream.showWeather" = false;
-	  "browser.newtabpage.activity-stream.system.showSponsored" = false;
-	  "browser.newtabpage.activity-stream.system.showWeather" = false;
-	  "browser.newtabpage.activity-stream.weather.locationSearchEnabled" = false;
+          "browser.newtabpage.activity-stream.showWeather" = false;
+          "browser.newtabpage.activity-stream.system.showSponsored" = false;
+          "browser.newtabpage.activity-stream.system.showWeather" = false;
+          "browser.newtabpage.activity-stream.weather.locationSearchEnabled" = false;
 
-	  # Search junk
-	  "browser.urlbar.suggest.topsites" = false;
-	  "browser.urlbar.suggest.trending" = false;
-	  "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
-	  "browser.urlbar.suggest.quicksuggest.sponsored" = false;
-	  "browser.urlbar.suggest.yelp" = false;
+          # Search junk
+          "browser.urlbar.suggest.topsites" = false;
+          "browser.urlbar.suggest.trending" = false;
+          "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
+          "browser.urlbar.suggest.quicksuggest.sponsored" = false;
+          "browser.urlbar.suggest.yelp" = false;
 
-	  # Addons junk
-	  "extensions.htmlaboutaddons.recommendations.enabled" = false;
+          # Addons junk
+          "extensions.htmlaboutaddons.recommendations.enabled" = false;
 
-	  # Prevent firefox from warning before going to about:config
-	  "browser.aboutConfig.showWarning" = false;
+          # Prevent firefox from warning before going to about:config
+          "browser.aboutConfig.showWarning" = false;
 
-	  # Don't try to store passwords. Using BitWarden for this
-	  "signon.rememberSignons" = false;
+          # Don't try to store passwords. Using BitWarden for this
+          "signon.rememberSignons" = false;
 
-	  # Don't worry about missing session files (deleted via impermanence)
-	  "browser.sessionstore.max_resumed_crashes" = -1;
-	};
+          # Don't worry about missing session files (deleted via impermanence)
+          "browser.sessionstore.max_resumed_crashes" = -1;
+        };
       };
     };
   };
