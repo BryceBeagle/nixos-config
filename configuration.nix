@@ -118,9 +118,13 @@ in
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
+
   environment = {
     shells = with pkgs; [zsh];
-    variables.EDITOR = "nvim";
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -182,6 +186,25 @@ in
       enable = true;
       userEmail = "bryce.beagle@gmail.com";
       userName = "ignormies";
+    };
+
+    programs.neovim = {
+      enable = true;
+      defaultEditor = true;
+
+      viAlias = true;
+      vimAlias = true;
+      vimdiffAlias = true;
+
+      plugins = with pkgs.vimPlugins; [
+        nvim-lspconfig
+        nvim-treesitter.withAllGrammars
+
+	{
+          plugin = catppuccin-nvim;
+          config = "colorscheme catppuccin-macchiato";
+        }
+      ];
     };
 
     programs.firefox = {
