@@ -84,6 +84,7 @@ in
     curl
     just
     neovim
+    ripgrep
     tree
     unzip
     wget
