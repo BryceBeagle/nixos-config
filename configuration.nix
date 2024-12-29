@@ -49,7 +49,6 @@ in
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
-    # useXkbConfig = true; # use xkb.options in tty.
   };
 
   services.xserver = {
@@ -75,11 +74,6 @@ in
     pulse.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     curl
     jq
@@ -113,6 +107,16 @@ in
       "discord"
       "spotify"
     ];
+
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+
+    # TODO: Use nerd-fonts packages in 25.05 channel
+    # https://www.reddit.com/r/NixOS/comments/1h1nc2a/nerdfonts_has_been_separated_into_individual_font/
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+  ];
 
   programs.fuse.userAllowOther = true;  # required for 'home-manager...home.persistence.allowOther = true'
   programs.git.enable = true;
