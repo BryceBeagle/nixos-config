@@ -223,6 +223,12 @@ in
             nnoremap <leader>fg <cmd>Telescope live_grep<cr>
           '';
         }
+
+        {
+          plugin = neo-tree-nvim;
+          config = builtins.readFile ./neo-tree-nvim.lua;
+          type = "lua";
+        }
       ];
 
       extraLuaConfig = builtins.readFile ./init.lua;
