@@ -5,3 +5,6 @@ vim.cmd("set tabstop=4")
 vim.cmd("set shiftwidth=4")
 vim.cmd("set softtabstop=-1")
 
+-- Always show line numbers
+vim.cmd("set nu")
+
