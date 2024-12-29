@@ -2,19 +2,14 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }: {
 
-let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz";
-  impermanence = builtins.fetchTarball "https://github.com/nix-community/impermanence/archive/master.tar.gz";
-in
-{
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-     (import "${home-manager}/nixos")
-      "${impermanence}/nixos.nix"
-    ]; 
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+    inputs.impermanence.nixosModules.impermanence
+  ];
+
+  nix.settings.experimental-features = [ "flakes" ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -146,7 +141,7 @@ in
   };
   home-manager.users.ignormies = {
     imports = [
-      "${impermanence}/home-manager.nix"
+      inputs.impermanence.homeManagerModules.impermanence
     ];
     home.stateVersion = "24.05";
     
