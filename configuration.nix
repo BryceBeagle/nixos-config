@@ -136,7 +136,12 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ignormies = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [
+      # Configure network settings
+      "networkmanager"
+      # Use sudo
+      "wheel" 
+    ];
     initialPassword = "foobar";
   };
   home-manager.users.ignormies = {
