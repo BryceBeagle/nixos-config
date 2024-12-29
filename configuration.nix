@@ -229,6 +229,11 @@ in
           config = builtins.readFile ./neo-tree-nvim.lua;
           type = "lua";
         }
+        {
+          plugin = lualine-nvim;
+          config = builtins.readFile ./lualine.lua;
+          type = "lua";
+        }
       ];
 
       extraLuaConfig = builtins.readFile ./init.lua;
