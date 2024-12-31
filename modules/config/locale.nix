@@ -4,6 +4,6 @@ delib.module {
 
   nixos.always = {
     i18n.defaultLocale = "en_US.UTF-8";
-    time.timeZone = "America/Los_Angeles";
+    time.timeZone = "Europe/Rome";
   };
 }
