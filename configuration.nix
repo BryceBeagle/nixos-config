@@ -58,7 +58,7 @@
 
   services.gnome.core-utilities.enable = false;
   environment.gnome.excludePackages = with pkgs; [
-    gnome.gnome-shell-extensions
+    gnome-shell-extensions
     gnome-tour
   ];
   
@@ -82,13 +82,13 @@
     # Gnome tools
     loupe
     gedit
-    gnome.baobab
-    gnome.gnome-calculator
-    gnome.gnome-screenshot
-    gnome.gnome-system-monitor
-    gnome.gnome-terminal
-    gnome.gnome-tweaks
-    gnome.nautilus
+    baobab
+    gnome-calculator
+    gnome-screenshot
+    gnome-system-monitor
+    gnome-terminal
+    gnome-tweaks
+    nautilus
     gnomeExtensions.paperwm
 
     libinput
@@ -106,7 +106,7 @@
 
   fonts.packages = with pkgs; [
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-emoji
 
     # TODO: Use nerd-fonts packages in 25.05 channel
