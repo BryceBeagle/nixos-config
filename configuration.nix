@@ -89,6 +89,7 @@
     gnome.gnome-terminal
     gnome.gnome-tweaks
     gnome.nautilus
+    gnomeExtensions.paperwm
 
     libinput
 
@@ -182,6 +183,11 @@
       };
       "org/gnome/desktop/peripherals/touchpad" = {
         natural-scroll = false;
+      };
+      "org/gnome/shell" = {
+        # Installed above in systemPackages. Ideally this becomes more isolated when we
+        # split into multiple modules
+        enabled-extensions = [ pkgs.gnomeExtensions.paperwm.extensionUuid ];
       };
     };
 
