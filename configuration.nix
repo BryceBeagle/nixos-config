@@ -129,6 +129,8 @@
     shells = with pkgs; [zsh];
   };
 
+  users.mutableUsers = false;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ignormies = {
     isNormalUser = true;
