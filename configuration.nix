@@ -140,7 +140,7 @@
     ];
     initialPassword = "foobar";
   };
-  home-manager.users.ignormies = {
+  home-manager.users.ignormies = { lib, ... }: {
     imports = [
       inputs.impermanence.homeManagerModules.impermanence
     ];
@@ -177,7 +177,11 @@
       allowOther = true;
     };
 
-    dconf.settings = {
+    dconf.settings = with lib.hm.gvariant; {
+      "org/gnome/desktop/input-sources" = {
+        sources = [ (mkTuple [ "xkb" "us" ]) ];
+        xkb-options = [ "compose:ralt" ];
+      };
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
       };
