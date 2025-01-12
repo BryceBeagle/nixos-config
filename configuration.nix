@@ -73,10 +73,12 @@
     curl
     jq
     just
+    libinput
     neovim
     ripgrep
     tree
     unzip
+    usbutils
     wget
 
     # Gnome tools
@@ -90,8 +92,6 @@
     gnome-tweaks
     nautilus
     gnomeExtensions.paperwm
-
-    libinput
 
     discord
     spotify
