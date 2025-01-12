@@ -1,5 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
+# Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 { config, lib, pkgs, inputs, ... }: {
@@ -11,11 +10,11 @@
 
   nix.settings.experimental-features = [ "flakes" ];
 
-  # Use the systemd-boot EFI boot loader.
+  # Use systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # persist some system directories
+  # Persist some system directories
   environment.persistence."/persist" = {
     hideMounts = true;
     directories = [
@@ -31,15 +30,11 @@
   # Without this, impermanance makes sudo give lecture every reboot
   security.sudo.extraConfig = "Defaults lecture = never";
 
-  networking.hostName = "poundcake"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.hostName = "poundcake";
+  networking.networkmanager.enable = true;
 
-  # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
@@ -118,15 +113,14 @@
   programs.git.enable = true;
 
   programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
+  programs.fish.enable = true;
+
+  # Default shell for users (i.e. in a terminal emulator)
+  users.defaultUserShell = pkgs.fish;
 
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-  };
-
-  environment = {
-    shells = with pkgs; [zsh];
   };
 
   users.mutableUsers = false;
@@ -195,12 +189,6 @@
         # split into multiple modules
         enabled-extensions = [ pkgs.gnomeExtensions.paperwm.extensionUuid ];
       };
-    };
-
-    programs.zsh = {
-      enable = true;
-      enableCompletion = true;
-      syntaxHighlighting.enable = true;
     };
 
     programs.git = {
