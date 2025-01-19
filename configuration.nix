@@ -92,6 +92,7 @@
     # Programming
     cargo
     gcc
+    rust-analyzer
     rustc
 
     # Human programs
@@ -251,6 +252,7 @@
       plugins = {
         cmp-nvim-lsp.enable = true;
         web-devicons.enable = true;  # Used by neo-tree
+        treesitter.enable = true;
 
         cmp = {
           enable = true;
@@ -279,6 +281,14 @@
 
           servers = {
             nil_ls.enable = true;
+
+            rust_analyzer = {
+              enable = true;
+
+              # Use system-install packages
+              installRustc = false;
+              installCargo = false;
+            };
           };
         };
         neo-tree = {
