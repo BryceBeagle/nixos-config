@@ -65,6 +65,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    # CLI tools
     curl
     jq
     just
@@ -88,6 +89,12 @@
     nautilus
     gnomeExtensions.paperwm
 
+    # Programming
+    cargo
+    gcc
+    rustc
+
+    # Human programs
     discord
     spotify
     timeshift
