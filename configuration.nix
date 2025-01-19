@@ -146,6 +146,7 @@
   home-manager.users.ignormies = { lib, ... }: {
     imports = [
       inputs.impermanence.homeManagerModules.impermanence
+      inputs.nixvim.homeManagerModules.nixvim
     ];
     home.stateVersion = "24.05";
     
@@ -214,7 +215,7 @@
       settings.git_protocol = "ssh";
     };
 
-    programs.neovim = {
+    programs.nixvim = {
       enable = true;
       defaultEditor = true;
 
@@ -222,36 +223,50 @@
       vimAlias = true;
       vimdiffAlias = true;
 
-      plugins = with pkgs.vimPlugins; [
-        nvim-lspconfig
-        nvim-treesitter.withAllGrammars
+      opts = {
+        number = true;  # Show line numbers
+        tabstop = 4;  # 4 space tabs
+        expandtab = true;  # <Tab> turns into spaces
+        shiftwidth = 4;  # Shift+< and Shift+> indent 4 spaces
+      };
 
+      keymaps = [
         {
-          plugin = catppuccin-nvim;
-          config = "colorscheme catppuccin-macchiato";
-        }
-
-        {
-          plugin = telescope-nvim;
-          config = ''
-            nnoremap <leader>ff <cmd>Telescope find_files<cr>
-            nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-          '';
-        }
-
-        {
-          plugin = neo-tree-nvim;
-          config = builtins.readFile ./neo-tree-nvim.lua;
-          type = "lua";
+          mode = "n";
+          key = "<leader><C-e>";
+          action = ":Neotree buffers reveal float<CR>";
         }
         {
-          plugin = lualine-nvim;
-          config = builtins.readFile ./lualine.lua;
-          type = "lua";
+          mode = "n";
+          key = "<leader><C-o>";
+          action = ":Neotree filesystem toggle float<CR>";
         }
       ];
 
-      extraLuaConfig = builtins.readFile ./init.lua;
+      colorschemes.catppuccin = {
+        enable = true;
+        settings.flavour = "macchiato";
+      };
+
+      plugins = {
+        lualine.enable = true;
+        web-devicons.enable = true;
+
+        neo-tree = {
+          enable = true;
+
+          closeIfLastWindow = true;
+          popupBorderStyle = "rounded";
+        };
+        telescope = {
+          enable = true;
+
+          keymaps = {
+            "<leader>ff" = "find_files";
+            "<leader>fg" = "live_grep";
+          };
+        };
+      };
     };
 
     programs.firefox = {

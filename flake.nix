@@ -7,6 +7,11 @@
     };
     impermanence.url = "github:nix-community/impermanence";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-24.11";
+      # Force nixvim to use same package versions as the system
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
