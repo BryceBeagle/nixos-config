@@ -58,7 +58,7 @@
   ];
   
   # Enable sound.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     pulse.enable = true;
@@ -108,13 +108,10 @@
     ];
 
   fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-emoji
-
-    # TODO: Use nerd-fonts packages in 25.05 channel
-    # https://www.reddit.com/r/NixOS/comments/1h1nc2a/nerdfonts_has_been_separated_into_individual_font/
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
   programs.fuse.userAllowOther = true;  # required for 'home-manager...home.persistence.allowOther = true'

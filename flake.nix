@@ -1,14 +1,17 @@
 {
   inputs = {
+    # https://discourse.nixos.org/t/differences-between-nix-channels/13998
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    impermanence.url = "github:nix-community/impermanence";
+
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager";
       # Force home-manager to use same package versions as the system
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    impermanence.url = "github:nix-community/impermanence";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-24.11";
+      url = "github:nix-community/nixvim";
       # Force nixvim to use same package versions as the system
       inputs.nixpkgs.follows = "nixpkgs";
     };
