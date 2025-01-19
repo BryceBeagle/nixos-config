@@ -188,6 +188,10 @@
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
       };
+      "org/gnome/desktop/peripherals/keyboard" = {
+        delay = 150;
+        repeat-interval = 15;
+      };
       "org/gnome/desktop/peripherals/touchpad" = {
         natural-scroll = false;
       };
