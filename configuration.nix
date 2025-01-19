@@ -249,9 +249,38 @@
       };
 
       plugins = {
-        lualine.enable = true;
-        web-devicons.enable = true;
+        cmp-nvim-lsp.enable = true;
+        web-devicons.enable = true;  # Used by neo-tree
 
+        cmp = {
+          enable = true;
+
+          autoEnableSources = true;
+
+          settings = {
+            sources = [
+              { name = "nvim_lsp"; }
+              { name = "path"; }
+              { name = "buffer"; }
+            ];
+          };
+        };
+        lsp = {
+          enable = true;
+
+          inlayHints = true;
+
+          keymaps = {
+            silent = true;
+            lspBuf = {
+              K = "hover";
+            };
+          };
+
+          servers = {
+            nil_ls.enable = true;
+          };
+        };
         neo-tree = {
           enable = true;
 
