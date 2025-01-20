@@ -204,6 +204,14 @@
       };
     };
 
+    programs.ghostty = {
+      enable = true;
+
+      settings = {
+        theme = "catppuccin-macchiato";
+      };
+    };
+
     programs.git = {
       enable = true;
       userEmail = "bryce.beagle@gmail.com";
