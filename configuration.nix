@@ -154,8 +154,10 @@
     home.persistence."/persist/home/ignormies" = {
       directories = [
         ".config/discord"
-        ".ssh"
+        # Contains fish_history. Needs to be dir because Fish overwrites symlinks
+        ".local/share/fish"
         ".mozilla/firefox/default/extensions"
+        ".ssh"
         "git"
       ];
       files = [
