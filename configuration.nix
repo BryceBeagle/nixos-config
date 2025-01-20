@@ -67,6 +67,7 @@
   environment.systemPackages = with pkgs; [
     # CLI tools
     curl
+    ghostty
     jq
     just
     libinput
@@ -84,7 +85,6 @@
     gnome-calculator
     gnome-screenshot
     gnome-system-monitor
-    gnome-terminal
     gnome-tweaks
     nautilus
     gnomeExtensions.paperwm
