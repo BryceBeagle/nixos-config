@@ -350,8 +350,12 @@
 
         search.engines = {
           "GitHub" = {
-            urls = [{template = "https://github.com/search?q={searchTerms}&type=code";}];
+            urls = [{template = "https://github.com/search?type=code&q={searchTerms}";}];
             definedAliases = ["cs"];
+          };
+          "Google Maps" = {
+            urls = [{template = "https://google.com/maps/search/{searchTerms}";}];
+            definedAliases = ["m"];
           };
 
           # Hide the other useless search engines from the bottom
