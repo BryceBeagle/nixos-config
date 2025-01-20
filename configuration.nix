@@ -146,7 +146,6 @@
       inputs.impermanence.homeManagerModules.impermanence
       inputs.nixvim.homeManagerModules.nixvim
     ];
-    home.stateVersion = "24.05";
     
     programs.home-manager.enable = true;
 
@@ -326,30 +325,6 @@
             Cryptomining = true;
             Fingerprinting = true;
           };
-          ExtensionSettings = {
-            # Would like to enable, but doing so prevents access to about:debugging
-            # https://bugzilla.mozilla.org/show_bug.cgi?id=1778559
-            # 
-            # "*" = {
-            #   blocked_install_message = "Modify the NixOS config dingus!";
-            #   installation_mode = "blocked";
-            # };
-
-            # https://www.reddit.com/r/firefox/comments/1afja73/how_to_get_an_extensions_name_gpo/
-
-            "addon@darkreader.org" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
-              installation_mode = "force_installed";
-            };
-            "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
-              installation_mode = "force_installed";
-            };
-            "uBlock0@raymondhill.net" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-              installation_mode = "force_installed";
-            };
-          };
         };
       };
 
@@ -376,6 +351,12 @@
           "eBay".metaData.hidden = true;
           "Wikipedia (en)".metaData.hidden = true;
         };
+
+        extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+          bitwarden
+          darkreader
+          ublock-origin
+        ];
 
         settings = {
           # First launch
@@ -415,6 +396,8 @@
         };
       };
     };
+
+    home.stateVersion = "24.05";
   };
 
   system.stateVersion = "24.05";
