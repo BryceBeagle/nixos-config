@@ -186,6 +186,7 @@
       };
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
+        enable-hot-corners = false;
       };
       "org/gnome/desktop/peripherals/keyboard" = {
         delay = 150;
