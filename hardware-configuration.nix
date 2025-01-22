@@ -1,4 +1,8 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, modulesPath, ... }:
+
+# For Framework 16, need to adjust sound settings in BIOS:
+# https://community.frame.work/t/responded-getting-full-speaker-performance-with-linux-on-framework-laptop-16/45067
+# https://guides.frame.work/Guide/Ubuntu+22.04+LTS+Installation+on+the+Framework+Laptop+16/306?lang=en#s1974
 
 {
   imports =
