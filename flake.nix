@@ -5,6 +5,8 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
+    nix-colors.url = "github:misterio77/nix-colors";
+
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       # Force firefox-addons to use same package versions as the system

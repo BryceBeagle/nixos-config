@@ -144,6 +144,8 @@
   home-manager.users.ignormies = { lib, ... }: {
     imports = [
       inputs.impermanence.homeManagerModules.impermanence
+
+      inputs.nix-colors.homeManagerModules.default
       inputs.nixvim.homeManagerModules.nixvim
     ];
     
@@ -200,6 +202,18 @@
         # Installed above in systemPackages. Ideally this becomes more isolated when we
         # split into multiple modules
         enabled-extensions = [ pkgs.gnomeExtensions.paperwm.extensionUuid ];
+      };
+    };
+
+    gtk = {
+      enable = true;
+
+      theme = let
+        # TODO: Move this `colorSchemes` attr to a higher scope
+        colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
+      in {
+        name = colorScheme.slug;
+        package = (inputs.nix-colors.lib-contrib { inherit pkgs; }).gtkThemeFromScheme { scheme = colorScheme; };
       };
     };
 
