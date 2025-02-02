@@ -411,6 +411,9 @@
 
           # Prevent Firefox from suggesting to re-open tabs from last session
           "browser.startup.couldRestoreSession.count" = -1;
+
+          # Default Ctrl-F to highlight all results by default
+          "findbar.highlightAll" = true;
         };
       };
     };
