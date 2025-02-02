@@ -225,6 +225,15 @@
       };
     };
 
+    programs.fish = {
+      enable = true;
+
+      functions = {
+        # Disable "Welcome to fish" message
+        fish_greeting = "";
+      };
+    };
+
     programs.git = {
       enable = true;
       userEmail = "bryce.beagle@gmail.com";
