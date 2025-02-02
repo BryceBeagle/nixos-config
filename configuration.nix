@@ -400,14 +400,17 @@
           # Addons junk
           "extensions.htmlaboutaddons.recommendations.enabled" = false;
 
-          # Prevent firefox from warning before going to about:config
+          # Prevent Firefox from warning before going to about:config
           "browser.aboutConfig.showWarning" = false;
 
-          # Don't try to store passwords. Using BitWarden for this
+          # Don't try to store passwords. Using Bitwarden for this
           "signon.rememberSignons" = false;
 
           # Don't worry about missing session files (deleted via impermanence)
           "browser.sessionstore.max_resumed_crashes" = -1;
+
+          # Prevent Firefox from suggesting to re-open tabs from last session
+          "browser.startup.couldRestoreSession.count" = -1;
         };
       };
     };
