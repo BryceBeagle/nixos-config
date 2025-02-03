@@ -48,7 +48,9 @@
 
     excludePackages = [ pkgs.xterm ];
 
-    xkb.options = "ctrl:nocaps";
+    # If xkbOptions are set in dconf config, they shadow this. Do not do.
+    # https://discourse.nixos.org/t/setting-caps-lock-as-ctrl-not-working/11952
+    xkb.options = "compose:ralt,ctrl:nocaps";
   };
 
   services.gnome.core-utilities.enable = false;
@@ -185,7 +187,8 @@
     dconf.settings = with lib.hm.gvariant; {
       "org/gnome/desktop/input-sources" = {
         sources = [ (mkTuple [ "xkb" "us" ]) ];
-        xkb-options = [ "compose:ralt" ];
+
+        # Do not set xkb-options here. They will shadow the xserver.xkb.options config
       };
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
