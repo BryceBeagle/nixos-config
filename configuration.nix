@@ -258,10 +258,14 @@
       vimdiffAlias = true;
 
       opts = {
+        # Tabs/spaces
         number = true;  # Show line numbers
         tabstop = 4;  # 4 space tabs
         expandtab = true;  # <Tab> turns into spaces
         shiftwidth = 4;  # Shift+< and Shift+> indent 4 spaces
+
+        # Navigation
+        scrolloff=999;  # ~Hack to keep cursor always at center of window
       };
 
       keymaps = [
