@@ -430,6 +430,9 @@
 
           # Default Ctrl-F to highlight all results by default
           "findbar.highlightAll" = true;
+
+          # Allow extensions to be auto-enabled
+          "extensions.autoDisableScopes" = 0;
         };
       };
     };
