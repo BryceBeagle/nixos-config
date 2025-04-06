@@ -8,7 +8,11 @@
     inputs.impermanence.nixosModules.impermanence
   ];
 
-  nix.settings.experimental-features = [ "flakes" ];
+  nix.settings = {
+    experimental-features = [ "flakes" ];
+    flake-registry = "";
+  };
+  nix.channel.enable = false;
 
   # Use systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
