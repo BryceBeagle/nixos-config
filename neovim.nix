@@ -15,7 +15,9 @@
       shiftwidth = 4;  # Shift+< and Shift+> indent 4 spaces
 
       # Navigation
-      scrolloff=999;  # ~Hack to keep cursor always at center of window
+      scrolloff = 999;  # ~Hack to keep cursor always at center of window
+
+      shell = "fish";
     };
 
     keymaps = [
