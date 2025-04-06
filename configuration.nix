@@ -9,7 +9,10 @@
   ];
 
   nix.settings = {
-    experimental-features = [ "flakes" ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     flake-registry = "";
   };
   nix.channel.enable = false;
