@@ -51,11 +51,11 @@
         };
 
         # Hide the other useless search engines from the bottom
-        "Amazon.com".metaData.hidden = true;
-        "Bing".metaData.hidden = true;
-        "DuckDuckGo".metaData.hidden = true;
-        "eBay".metaData.hidden = true;
-        "Wikipedia (en)".metaData.hidden = true;
+        amazon.metaData.hidden = true;
+        bing.metaData.hidden = true;
+        ddg.metaData.hidden = true;
+        ebay.metaData.hidden = true;
+        wikipedia.metaData.hidden = true;
       };
 
       extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
