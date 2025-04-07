@@ -58,7 +58,7 @@
         wikipedia.metaData.hidden = true;
       };
 
-      extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+      extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
         bitwarden
         darkreader
         ublock-origin
