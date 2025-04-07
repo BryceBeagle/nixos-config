@@ -16,6 +16,7 @@
 
       # Navigation
       scrolloff = 999;  # ~Hack to keep cursor always at center of window
+      relativenumber = true;  # Use relative line numbers in gutter
 
       shell = "fish";
     };
