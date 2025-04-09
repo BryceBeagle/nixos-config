@@ -8,6 +8,7 @@
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       enable-hot-corners = false;
+      text-scaling-factor = 1.25;
     };
     "org/gnome/desktop/peripherals/keyboard" = {
       delay = 150;
