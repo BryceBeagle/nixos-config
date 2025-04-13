@@ -85,6 +85,8 @@
 
         servers = {
           nil_ls.enable = true;
+          pyright.enable = true;
+          ruff.enable = true;
 
           rust_analyzer = {
             enable = true;
