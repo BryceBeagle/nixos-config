@@ -94,6 +94,12 @@
 
         closeIfLastWindow = true;
         popupBorderStyle = "rounded";
+
+        extraOptions = {
+          open_files_do_not_replace_types = [
+            "terminal"
+          ];
+        };
       };
       telescope = {
         enable = true;
