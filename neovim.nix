@@ -23,6 +23,11 @@
 
     keymaps = [
       {
+        mode = "i";
+        key = "jj";
+        action = "<Esc>";
+      }
+      {
         mode = "n";
         key = "<leader><C-e>";
         action = ":Neotree buffers reveal float<CR>";
