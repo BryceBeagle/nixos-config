@@ -12,5 +12,6 @@
   - https://neovim.io
   - https://nixos.org
   - https://nixos.wiki
+  - https://nix-community.github.io
   - https://vimhelp.org
 
