@@ -43,6 +43,7 @@
       cmp-nvim-lsp.enable = true;
       diffview.enable = true;
       gitgutter.enable = true;
+      lualine.enable = true;
       web-devicons.enable = true;  # Used by neo-tree
       treesitter.enable = true;
 
