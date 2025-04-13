@@ -11,6 +11,7 @@
 
     settings = {
       theme = "catppuccin-macchiato";
+      window-decoration = "none";
     };
   };
 
