@@ -46,6 +46,11 @@
       web-devicons.enable = true;  # Used by neo-tree
       treesitter.enable = true;
 
+      auto-session = {
+        enable = true;
+
+        autoLoad = true;
+      };
       cmp = {
         enable = true;
 
