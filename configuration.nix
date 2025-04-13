@@ -65,7 +65,7 @@
     gnome-shell-extensions
     gnome-tour
   ];
-  
+
   # Enable sound.
   services.pulseaudio.enable = false;
   services.pipewire = {
@@ -148,7 +148,7 @@
       # Configure network settings
       "networkmanager"
       # Use sudo
-      "wheel" 
+      "wheel"
     ];
     initialPassword = "foobar";
   };
@@ -157,7 +157,7 @@
     # Implicitly passed to all modules under 'imports'. `inputs' is not a default
     # 'specialArg', so it needs to be listed.
     extraSpecialArgs = { inherit inputs; };
-    
+
     users.ignormies = { lib, ... }: {
       imports = [
         inputs.impermanence.homeManagerModules.impermanence
