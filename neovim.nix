@@ -91,7 +91,7 @@
           rust_analyzer = {
             enable = true;
 
-            # Use system-install packages
+            # Use system-installed packages
             installRustc = false;
             installCargo = false;
           };
