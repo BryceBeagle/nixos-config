@@ -75,6 +75,7 @@
 
   environment.systemPackages = with pkgs; [
     # CLI tools
+    claude-code
     curl
     ghostty
     jq
@@ -112,6 +113,7 @@
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
+      "claude-code"
       "discord"
       "spotify"
     ];
