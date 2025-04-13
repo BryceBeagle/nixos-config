@@ -35,7 +35,7 @@
       {
         mode = "n";
         key = "<leader><C-o>";
-        action = ":Neotree filesystem toggle float<CR>";
+        action = ":Neotree filesystem toggle<CR>";
       }
     ];
 
