@@ -105,7 +105,6 @@
 
     # Programming
     cargo
-    direnv
     gcc
     rust-analyzer
     rustc
