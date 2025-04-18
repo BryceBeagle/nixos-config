@@ -1,7 +1,9 @@
 { ... }: {
   home.persistence."/persist/home/ignormies" = {
     directories = [
-      # Contains fish_history. Needs to be dir because Fish overwrites symlinks
+      # `direnv allow`-ed directories
+      ".local/share/direnv/allow"
+      # fish_history. Needs to be dir because Fish overwrites symlinks
       ".local/share/fish"
     ];
   };
