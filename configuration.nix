@@ -105,6 +105,7 @@
 
     # Programming
     cargo
+    exercism
     gcc
     rust-analyzer
     rustc
@@ -182,6 +183,10 @@
       home.persistence."/persist/home/ignormies" = {
         directories = [
           ".ssh"
+        ];
+        files = [
+          # API token stored here
+          ".config/exercism/user.json"
         ];
         allowOther = true;
       };
