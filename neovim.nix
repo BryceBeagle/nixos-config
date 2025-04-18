@@ -47,6 +47,7 @@
     plugins = {
       cmp-nvim-lsp.enable = true;
       diffview.enable = true;
+      direnv.enable = true;
       gitgutter.enable = true;
       lualine.enable = true;
       nvim-autopairs.enable = true;
