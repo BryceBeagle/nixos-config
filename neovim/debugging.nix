@@ -27,8 +27,16 @@
 
         signs = {
           dapBreakpoint = {
-            text = "●";
+            text = "";
             texthl = "DapBreakpoint";
+          };
+          dapBreakpointRejected = {
+            text = "󰅙";
+            texthl = "DapBreakpointRejected";
+          };
+          dapStopped = {
+            text = "";
+            texthl = "DapStopped";
           };
         };
       };
