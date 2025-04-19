@@ -123,9 +123,10 @@
       "spotify"
     ];
 
+  # fontconfig must be enabled in home-manager config
   fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
     noto-fonts
+    nerd-fonts.jetbrains-mono
     noto-fonts-cjk-sans
     noto-fonts-emoji
   ];
@@ -190,6 +191,12 @@
         ];
         allowOther = true;
       };
+
+      # From https://wiki.nixos.org/wiki/Fonts:
+      # > Nix inserts its user profile path into $XDG_DATA_DIRS, which Fontconfig by
+      # > default doesn't look in. This cause graphical applications like KDE Plasma not
+      # > able to recognize the fonts installed via nix-env or nix profile.
+      fonts.fontconfig.enable = true;
 
       home.stateVersion = "24.05";
     };
