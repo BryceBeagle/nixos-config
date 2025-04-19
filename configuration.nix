@@ -170,11 +170,11 @@
         inputs.nix-colors.homeManagerModules.default
         inputs.nixvim.homeManagerModules.nixvim
 
+        ./neovim
         ./discord.nix
         ./firefox.nix
         ./git.nix
         ./gnome.nix
-        ./neovim.nix
         ./terminal.nix
       ];
 

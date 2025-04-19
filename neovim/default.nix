@@ -1,4 +1,8 @@
 { pkgs, ... }: {
+  imports = [
+    ./debugging.nix
+  ];
+
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
