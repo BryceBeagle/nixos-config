@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./debugging.nix
+    ./selection.nix
     ./testing.nix
   ];
 
@@ -61,7 +62,6 @@
       gitgutter.enable = true;
       lualine.enable = true;
       nvim-autopairs.enable = true;
-      treesitter.enable = true;
       web-devicons.enable = true;  # Used by neo-tree
 
       auto-session = {
