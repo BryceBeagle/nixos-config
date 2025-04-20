@@ -32,6 +32,11 @@
         action = "<Esc>";
       }
       {
+        mode = "t";
+        key = "jj";
+        action = "<C-\\><C-n>";
+      }
+      {
         mode = "n";
         key = "<leader><C-e>";
         action = ":Neotree buffers reveal float<CR>";
