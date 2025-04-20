@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./debugging.nix
+    ./testing.nix
   ];
 
   programs.nixvim = {
