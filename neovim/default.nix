@@ -103,10 +103,18 @@
           rev = "d1dbc6b7025c4f034e14cc0dda6d29d5a6a5c4e8";
         };
       })
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "tiny-inline-diagnostic";
+        src = builtins.fetchGit {
+          url = "https://github.com/rachartier/tiny-inline-diagnostic.nvim";
+          rev = "cd401038de4cbae37651cfe02510294ccf5cdc98";
+        };
+      })
     ];
 
     extraConfigLuaPost = ''
       require("claude-code").setup()
+      require("tiny-inline-diagnostic").setup()
     '';
   };
 }
