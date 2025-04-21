@@ -3,6 +3,7 @@
     ./debugging.nix
     ./navigation.nix
     ./selection.nix
+    ./terminal.nix
     ./testing.nix
   ];
 
@@ -29,11 +30,6 @@
         mode = "i";
         key = "jj";
         action = "<Esc>";
-      }
-      {
-        mode = "t";
-        key = "jj";
-        action = "<C-\\><C-n>";
       }
     ];
 
