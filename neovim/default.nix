@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./debugging.nix
+    ./navigation.nix
     ./selection.nix
     ./testing.nix
   ];
@@ -20,10 +21,6 @@
       expandtab = true;  # <Tab> turns into spaces
       shiftwidth = 4;  # Shift+< and Shift+> indent 4 spaces
 
-      # Navigation
-      scrolloff = 999;  # ~Hack to keep cursor always at center of window
-      relativenumber = true;  # Use relative line numbers in gutter
-
       shell = "fish";
     };
 
@@ -37,16 +34,6 @@
         mode = "t";
         key = "jj";
         action = "<C-\\><C-n>";
-      }
-      {
-        mode = "n";
-        key = "<leader><C-e>";
-        action = ":Neotree buffers reveal float<CR>";
-      }
-      {
-        mode = "n";
-        key = "<leader><C-o>";
-        action = ":Neotree filesystem toggle<CR>";
       }
     ];
 
@@ -106,26 +93,6 @@
             installRustc = false;
             installCargo = false;
           };
-        };
-      };
-      neo-tree = {
-        enable = true;
-
-        closeIfLastWindow = true;
-        popupBorderStyle = "rounded";
-
-        extraOptions = {
-          open_files_do_not_replace_types = [
-            "terminal"
-          ];
-        };
-      };
-      telescope = {
-        enable = true;
-
-        keymaps = {
-          "<leader>ff" = "find_files";
-          "<leader>fg" = "live_grep";
         };
       };
     };
