@@ -5,6 +5,15 @@
       dap-ui = {
         enable = true;
 
+        settings = {
+          element_mappings = {
+            stacks = {
+              open = "<CR>";
+              expand = "o";
+            };
+          };
+        };
+
         luaConfig.post = ''
           local dap, dapui = require("dap"), require("dapui")
           dap.listeners.before.attach.dapui_config = function()
