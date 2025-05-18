@@ -44,7 +44,7 @@
       window-picker-icon = false;
       window-preview-caption = false;
       # Workspace indicator in overview
-      workspace-switcher-should-show = false;
+      workspace = false;
     };
     "org/gnome/shell/extensions/paperwm" = {
       show-window-position-bar = false;
