@@ -106,6 +106,7 @@
     gnome-system-monitor
     gnome-tweaks
     nautilus
+    gnomeExtensions.just-perfection
     gnomeExtensions.paperwm
 
     # Programming
