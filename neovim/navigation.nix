@@ -25,6 +25,8 @@
     ];
 
     plugins = {
+      neoscroll.enable = true;
+
       neo-tree = {
         enable = true;
 
