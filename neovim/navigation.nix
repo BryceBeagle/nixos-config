@@ -25,6 +25,7 @@
     ];
 
     plugins = {
+      dropbar.enable = true;
       neoscroll.enable = true;
 
       neo-tree = {
@@ -38,7 +39,7 @@
             "terminal"
           ];
         };
-     };
+      };
       telescope = {
         enable = true;
 
