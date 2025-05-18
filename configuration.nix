@@ -21,10 +21,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Temporarily use "latest" kernel
-  # See https://github.com/BryceBeagle/nixos-config/issues/118
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
   # Persist some system directories
   environment.persistence."/persist" = {
     hideMounts = true;
