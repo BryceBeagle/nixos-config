@@ -2,7 +2,10 @@
 
   home.persistence."/persist/home/ignormies" = {
     directories = [
-      ".mozilla/firefox/default/extensions"
+      ".mozilla/firefox/default/extensions/"
+      # Extension data is stored here, but also IndexedDB data for random websites
+      # See https://github.com/BryceBeagle/nixos-config/issues/151
+      ".mozilla/firefox/default/storage/default/"
     ];
     files = [
       ".mozilla/firefox/default/cookies.sqlite"
@@ -12,6 +15,9 @@
       ".mozilla/firefox/default/content-prefs.sqlite"
       # Browser history and bookmarks
       ".mozilla/firefox/default/places.sqlite"
+      # Contains extension GUIDs that need to match entries in
+      # .mozilla/firefox/default/storage/default (persisted above)
+      ".mozilla/firefox/default/prefs.js"
       # I guess this is useful?
       # https://bugzilla.mozilla.org/show_bug.cgi?id=1511384
       # https://developer.mozilla.org/en-US/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria
@@ -90,6 +96,10 @@
 
         # Addons junk
         "extensions.htmlaboutaddons.recommendations.enabled" = false;
+
+        # Pocket junk
+        "browser.urlbar.suggest.pocket" = false;
+        "extensions.pocket.enabled" = false;
 
         # Prevent Firefox from warning before going to about:config
         "browser.aboutConfig.showWarning" = false;
