@@ -46,6 +46,9 @@
       # Workspace indicator in overview
       workspace-switcher-should-show = false;
     };
+    "org/gnome/shell/extensions/paperwm" = {
+      show-window-position-bar = false;
+    };
   };
 
   gtk = {
