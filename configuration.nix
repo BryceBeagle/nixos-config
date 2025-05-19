@@ -114,7 +114,6 @@
 
     # Human programs
     discord
-    spotify
     timeshift
   ];
 
@@ -122,7 +121,6 @@
     builtins.elem (lib.getName pkg) [
       "claude-code"
       "discord"
-      "spotify"
     ];
 
   # fontconfig must be enabled in home-manager config
@@ -172,12 +170,14 @@
 
         inputs.nix-colors.homeManagerModules.default
         inputs.nixvim.homeManagerModules.nixvim
+        inputs.spicetify-nix.homeManagerModules.default
 
         ./neovim
         ./discord.nix
         ./firefox.nix
         ./git.nix
         ./gnome.nix
+        ./spotify.nix
         ./terminal.nix
       ];
 
