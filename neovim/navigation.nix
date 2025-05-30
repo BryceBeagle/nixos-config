@@ -22,10 +22,23 @@
         key = "<leader>gtf";
         action = ":Neotree filesystem toggle<CR>";
       }
+      {
+        mode = [ "n" "x" ];
+        key = "s";
+        action = ":lua require('flash').jump()<CR>";
+        options.desc = "flash";
+      }
+      {
+        mode = [ "n" "x" ];
+        key = "S";
+        action = ":lua require('flash').treesitter()<CR>";
+        options.desc = "flash Treesitter";
+      }
     ];
 
     plugins = {
       dropbar.enable = true;
+      flash.enable = true;
       neoscroll.enable = true;
 
       neo-tree = {
