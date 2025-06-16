@@ -55,13 +55,6 @@
           urls = [{template = "https://google.com/maps/search/{searchTerms}";}];
           definedAliases = ["m"];
         };
-
-        # Hide the other useless search engines from the bottom
-        amazon.metaData.hidden = true;
-        bing.metaData.hidden = true;
-        ddg.metaData.hidden = true;
-        ebay.metaData.hidden = true;
-        wikipedia.metaData.hidden = true;
       };
 
       extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
@@ -88,6 +81,7 @@
         "browser.newtabpage.activity-stream.weather.locationSearchEnabled" = false;
 
         # Search junk
+        "browser.urlbar.scotchBonnet.enableOverride" = true;
         "browser.urlbar.suggest.topsites" = false;
         "browser.urlbar.suggest.trending" = false;
         "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
