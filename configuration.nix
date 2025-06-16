@@ -179,6 +179,7 @@
         ./gnome.nix
         ./spotify.nix
         ./terminal.nix
+        ./xdg.nix
       ];
 
       programs.home-manager.enable = true;
