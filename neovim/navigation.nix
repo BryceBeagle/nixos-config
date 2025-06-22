@@ -2,6 +2,7 @@
   programs.nixvim = {
 
     opts = {
+      foldlevelstart = 999;  # ~Hack to keep things unfolded on file open
       scrolloff = 999;  # ~Hack to keep cursor always at center of window
       relativenumber = true;  # Use relative line numbers in gutter
     };
@@ -40,6 +41,7 @@
       dropbar.enable = true;
       flash.enable = true;
       neoscroll.enable = true;
+      nvim-ufo.enable = true;
 
       neo-tree = {
         enable = true;
