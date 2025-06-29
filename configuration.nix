@@ -53,30 +53,32 @@
     keyMap = "us";
   };
 
-  services.xserver = {
-    enable = true;
+  services = {
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
+    gnome.core-apps.enable = false;
 
-    excludePackages = [ pkgs.xterm ];
+    # Enable sound.
+    pulseaudio.enable = false;
+    pipewire = {
+      enable = true;
+      pulse.enable = true;
+    };
 
-    # If xkbOptions are set in dconf config, they shadow this. Do not do.
-    # https://discourse.nixos.org/t/setting-caps-lock-as-ctrl-not-working/11952
-    xkb.options = "compose:ralt,ctrl:nocaps";
+    xserver = {
+      enable = true;
+      excludePackages = [ pkgs.xterm ];
+
+      # If xkbOptions are set in dconf config, they shadow this. Do not do.
+      # https://discourse.nixos.org/t/setting-caps-lock-as-ctrl-not-working/11952
+      xkb.options = "compose:ralt,ctrl:nocaps";
+    };
   };
 
-  services.gnome.core-apps.enable = false;
   environment.gnome.excludePackages = with pkgs; [
     gnome-shell-extensions
     gnome-tour
   ];
-
-  # Enable sound.
-  services.pulseaudio.enable = false;
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
 
   environment.systemPackages = with pkgs; [
     # CLI tools
