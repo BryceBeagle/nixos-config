@@ -18,6 +18,7 @@
     enable = true;
 
     settings = {
+      cursor-invert-fg-bg = true;
       theme = "catppuccin-macchiato";
       window-decoration = "none";
     };
