@@ -17,6 +17,10 @@
     "org/gnome/desktop/peripherals/touchpad" = {
       natural-scroll = false;
     };
+    "org/gnome/settings-daemon/plugins/power" = {
+      # Disable automatic screen brightness
+      ambient-enabled = false;
+    };
     "org/gnome/shell" = {
       # Installed above in systemPackages. Ideally this becomes more isolated when we
       # split into multiple modules
