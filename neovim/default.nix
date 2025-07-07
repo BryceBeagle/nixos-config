@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   imports = [
+    ./completion.nix
     ./debugging.nix
     ./navigation.nix
     ./selection.nix
@@ -39,7 +40,6 @@
     };
 
     plugins = {
-      cmp-nvim-lsp.enable = true;
       diffview.enable = true;
       direnv.enable = true;
       gitgutter.enable = true;
@@ -52,45 +52,6 @@
         enable = true;
 
         autoLoad = true;
-      };
-      cmp = {
-        enable = true;
-
-        autoEnableSources = true;
-
-        settings = {
-          sources = [
-            { name = "nvim_lsp"; }
-            { name = "path"; }
-            { name = "buffer"; }
-          ];
-        };
-      };
-      lsp = {
-        enable = true;
-
-        inlayHints = true;
-
-        keymaps = {
-          silent = true;
-          lspBuf = {
-            K = "hover";
-          };
-        };
-
-        servers = {
-          nil_ls.enable = true;
-          pyright.enable = true;
-          ruff.enable = true;
-
-          rust_analyzer = {
-            enable = true;
-
-            # Use system-installed packages
-            installRustc = false;
-            installCargo = false;
-          };
-        };
       };
     };
 
