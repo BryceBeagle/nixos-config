@@ -6,6 +6,7 @@
     ./selection.nix
     ./terminal.nix
     ./testing.nix
+    ./windows.nix
   ];
 
   programs.nixvim = {
@@ -47,12 +48,6 @@
       noice.enable = true;
       nvim-autopairs.enable = true;
       web-devicons.enable = true;  # Used by neo-tree
-
-      auto-session = {
-        enable = true;
-
-        autoLoad = true;
-      };
     };
 
     extraPlugins = [
