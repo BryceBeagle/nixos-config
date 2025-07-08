@@ -190,10 +190,11 @@
 
       home.persistence."/persist/home/ignormies" = {
         directories = [
-          ".ssh"
+          ".local/share/keyrings/"
+          ".ssh/"
         ];
         files = [
-          # API token stored here
+          # Exercism API token stored here
           ".config/exercism/user.json"
         ];
         allowOther = true;
