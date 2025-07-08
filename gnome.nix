@@ -11,8 +11,8 @@
       text-scaling-factor = 1.25;
     };
     "org/gnome/desktop/peripherals/keyboard" = {
-      delay = 150;
-      repeat-interval = 15;
+      delay = (mkUint32 300);
+      repeat-interval = (mkUint32 15);
     };
     "org/gnome/desktop/peripherals/touchpad" = {
       natural-scroll = false;
