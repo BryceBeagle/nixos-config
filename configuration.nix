@@ -106,8 +106,6 @@
     gnome-system-monitor
     gnome-tweaks
     nautilus
-    gnomeExtensions.just-perfection
-    gnomeExtensions.paperwm
 
     # Programming
     cargo
@@ -176,11 +174,12 @@
         inputs.nixvim.homeManagerModules.nixvim
         inputs.spicetify-nix.homeManagerModules.default
 
+        ./desktop-environment
         ./neovim
+
         ./discord.nix
         ./firefox.nix
         ./git.nix
-        ./gnome.nix
         ./spotify.nix
         ./terminal.nix
         ./xdg.nix

@@ -1,4 +1,12 @@
 { inputs, lib, pkgs, ... }: {
+  imports = [
+    ./just-perfection.nix
+  ];
+
+  home.packages = with pkgs.gnomeExtensions; [
+    paperwm
+  ];
+
   dconf.settings = with lib.hm.gvariant; {
     "org/gnome/desktop/input-sources" = {
       sources = [ (mkTuple [ "xkb" "us" ]) ];
@@ -22,33 +30,9 @@
       ambient-enabled = false;
     };
     "org/gnome/shell" = {
-      # Installed above in systemPackages. Ideally this becomes more isolated when we
-      # split into multiple modules
       enabled-extensions = with pkgs.gnomeExtensions; [ 
-        just-perfection.extensionUuid
         paperwm.extensionUuid
       ];
-    };
-    "org/gnome/shell/extensions/just-perfection" = {
-      panel = false;
-      panel-in-overview = true;
-
-      # Start to desktop instead of overview
-      startup-status = 1;
-
-      accessibility-menu = false;
-      # What MacOS calls the Dock
-      dash = false;
-      # 'Events' in the clock menu
-      events = false;
-      # Hides search bar visually, but can still type to start searching
-      search = false;
-      weather = false;
-      # Little icon under the window preview in overview
-      window-picker-icon = false;
-      window-preview-caption = false;
-      # Workspace indicator in overview
-      workspace = false;
     };
     "org/gnome/shell/extensions/paperwm" = {
       show-window-position-bar = false;
