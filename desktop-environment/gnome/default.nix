@@ -1,10 +1,7 @@
 { inputs, lib, pkgs, ... }: {
   imports = [
     ./just-perfection.nix
-  ];
-
-  home.packages = with pkgs.gnomeExtensions; [
-    paperwm
+    ./paperwm.nix
   ];
 
   dconf.settings = with lib.hm.gvariant; {
@@ -33,9 +30,6 @@
       enabled-extensions = with pkgs.gnomeExtensions; [ 
         paperwm.extensionUuid
       ];
-    };
-    "org/gnome/shell/extensions/paperwm" = {
-      show-window-position-bar = false;
     };
   };
 
