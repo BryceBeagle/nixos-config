@@ -11,6 +11,11 @@
     };
     "org/gnome/shell/extensions/paperwm" = {
       show-window-position-bar = false;
+      winprops = map builtins.toJSON [
+        # Splash screen Discord shows on launch. It uses this title even if not
+        # actually performing any updates
+        { title = "Discord Updater"; scratch_layer = true; }
+      ];
     };
   };
 
