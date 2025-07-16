@@ -3,6 +3,8 @@
   imports = [
     inputs.home-manager.nixosModules.home-manager
     inputs.impermanence.nixosModules.impermanence
+
+    ./security.nix
   ];
 
   nix.settings = {
@@ -35,9 +37,6 @@
       "/etc/NetworkManager/system-connections/"
     ];
   };
-
-  # Without this, impermanance makes sudo give lecture every reboot
-  security.sudo.extraConfig = "Defaults lecture = never";
 
   networking.hostName = "poundcake";
   networking.networkmanager.enable = true;
@@ -130,7 +129,9 @@
     noto-fonts-emoji
   ];
 
-  programs.fuse.userAllowOther = true;  # required for 'home-manager...home.persistence.allowOther = true'
+  # required for 'home-manager...home.persistence.allowOther = true'
+  programs.fuse.userAllowOther = true;
+
   programs.git.enable = true;
 
   programs.zsh.enable = true;
@@ -142,20 +143,6 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-  };
-
-  users.mutableUsers = false;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.ignormies = {
-    isNormalUser = true;
-    extraGroups = [
-      # Configure network settings
-      "networkmanager"
-      # Use sudo
-      "wheel"
-    ];
-    initialPassword = "foobar";
   };
 
   home-manager = {
