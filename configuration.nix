@@ -4,6 +4,7 @@
     inputs.home-manager.nixosModules.home-manager
     inputs.impermanence.nixosModules.impermanence
 
+    ./embedded.nix
     ./security.nix
   ];
 
