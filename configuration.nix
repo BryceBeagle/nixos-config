@@ -58,10 +58,10 @@
     gnome.core-apps.enable = false;
 
     # Enable sound.
-    pulseaudio.enable = false;
     pipewire = {
       enable = true;
-      pulse.enable = true;
+      # Use as primary audio server, in lieu of pulseaudio/jack
+      audio.enable = true;
     };
 
     xserver = {
