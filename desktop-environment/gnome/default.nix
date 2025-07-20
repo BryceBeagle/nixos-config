@@ -8,7 +8,14 @@
     "org/gnome/desktop/input-sources" = {
       sources = [ (mkTuple [ "xkb" "us" ]) ];
 
-      # Do not set xkb-options here. They will shadow the xserver.xkb.options config
+      # This duplicates the config in `xserver.xkb.options` due to (I think) an
+      # upstream bug:
+      # https://github.com/BryceBeagle/nixos-config/issues/163
+      # https://discourse.nixos.org/t/suddenly-setting-caps-escape-in-xkb-settings-does-not-work-anymore/64714/6
+      xkb-options = [
+        "compose:ralt"
+        "ctrl:nocaps"
+      ];
     };
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
@@ -45,4 +52,3 @@
     };
   };
 }
-
