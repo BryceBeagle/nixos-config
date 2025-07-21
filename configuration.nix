@@ -79,9 +79,9 @@
     gnome-tour
   ];
 
+  # Globally enabled for all users
   environment.systemPackages = with pkgs; [
     # CLI tools
-    claude-code
     curl
     ghostty
     jq
@@ -94,32 +94,15 @@
     usbutils
     wget
 
-    # Gnome tools
-    loupe
-    gedit
-    baobab
-    gnome-calculator
-    gnome-screenshot
-    gnome-system-monitor
-    gnome-tweaks
-    nautilus
-
-    # Programming
+    # Useful for LSPs and other file-editing
     cargo
-    exercism
-    gcc
     rust-analyzer
-    rustc
-
-    # Human programs
-    discord
-    timeshift
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
-      "claude-code"
       "discord"
+      "spotify"
     ];
 
   # fontconfig must be enabled in home-manager config
@@ -151,13 +134,13 @@
     # 'specialArg', so it needs to be listed.
     extraSpecialArgs = { inherit inputs; };
 
-    users.ignormies = { lib, ... }: {
+    # https://discourse.nixos.org/t/34506
+    useGlobalPkgs = true;
+
+    users.ignormies = { lib, pkgs, ... }: {
       imports = [
         inputs.impermanence.homeManagerModules.impermanence
-
         inputs.nix-colors.homeManagerModules.default
-        inputs.nixvim.homeManagerModules.nixvim
-        inputs.spicetify-nix.homeManagerModules.default
 
         ./desktop-environment
         ./neovim
@@ -170,6 +153,22 @@
         ./xdg.nix
       ];
 
+      # Globally enabled, even without flake
+      home.packages = with pkgs; [
+        # Gnome tools
+        loupe
+        gedit
+        baobab
+        gnome-calculator
+        gnome-screenshot
+        gnome-system-monitor
+        gnome-tweaks
+        nautilus
+
+        # Human programs
+        discord
+        timeshift
+      ];
       programs.home-manager.enable = true;
 
       home.persistence."/persist/home/ignormies" = {
