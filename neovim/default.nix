@@ -19,6 +19,10 @@
     vimAlias = true;
     vimdiffAlias = true;
 
+    globals = {
+      # https://learnvimscriptthehardway.stevelosh.com/chapters/06.html
+      mapleader = " ";
+    };
     opts = {
       # Tabs/spaces
       number = true;  # Show line numbers
