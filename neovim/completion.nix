@@ -1,27 +1,18 @@
 { ... }: {
   programs.nixvim = {
     plugins = {
-      cmp-nvim-lsp.enable = true;
-
-      cmp = {
+      blink-cmp = {
         enable = true;
 
-        autoEnableSources = true;
-
         settings = {
-          sources = [
-            { name = "nvim_lsp"; }
-            { name = "path"; }
-            { name = "buffer"; }
-          ];
+          keymap.preset = "enter";
 
-          mapping = {
-            "<C-Space>" = "cmp.mapping.complete()";  # Start autocompletion
-            "<C-e>" = "cmp.mapping.abort()";
-            "<C-n>" = "cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select })";
-            "<C-p>" = "cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select })";
-            "<CR>" = "cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert })";
-            "<Tab>" = "cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })";
+          completion = {
+            ghost_text.enabled = true;
+
+            # Consider full tokens even if cursor is in the center of one
+            # https://cmp.saghen.dev/configuration/reference.html#completion-keyword
+            keyword.range = "full";
           };
         };
       };
