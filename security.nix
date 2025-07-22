@@ -1,4 +1,8 @@
-{ ... }: {
+{ inputs, ... }: {
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+  ];
+
   security = {
     # Without this, impermanance makes sudo give lecture every reboot
     sudo.extraConfig = "Defaults lecture = never";
@@ -34,5 +38,23 @@
       ];
       initialPassword = "foobar";
     };
+  };
+
+  environment.persistence."/persist" = {
+    hideMounts = true;
+    directories = [
+      # fprint stores fingerprints here. We'll persist for primary user
+      {
+        directory = "/var/lib/fprint/ignormies/";
+        mode = "0700";
+      }
+    ];
+  };
+
+  home-manager.users.ignormies.home.persistence."/persist/home/ignormies" = {
+    directories = [
+      ".local/share/keyrings/"
+      ".ssh/"
+    ];
   };
 }

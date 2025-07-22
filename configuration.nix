@@ -25,17 +25,17 @@
   environment.persistence."/persist" = {
     hideMounts = true;
     directories = [
+      "/etc/NetworkManager/system-connections/"
       "/var/log/"
-      "/var/lib/nixos/"
       "/var/lib/alsa/"
       "/var/lib/bluetooth/"
+      "/var/lib/nixos/"
       # Backlight value(s) from previous boot. The files in here are written at
       # poweroff and read at startup.
       # We could consider forcing a value into the file(s) instead of persisting
       # the previous boot's state.
       "/var/lib/systemd/backlight/"
       "/var/lib/systemd/coredump/"
-      "/etc/NetworkManager/system-connections/"
     ];
   };
 
@@ -51,10 +51,9 @@
   };
 
   services = {
-    fwupd.enable = true;
-
-    displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
+    displayManager.gdm.enable = true;
+    fwupd.enable = true;
     gnome.core-apps.enable = false;
 
     # Enable sound.
@@ -172,10 +171,6 @@
       programs.home-manager.enable = true;
 
       home.persistence."/persist/home/ignormies" = {
-        directories = [
-          ".local/share/keyrings/"
-          ".ssh/"
-        ];
         files = [
           # Exercism API token stored here
           ".config/exercism/user.json"
