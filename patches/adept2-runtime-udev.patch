@@ -1,0 +1,21 @@
+diff --git a/pkgs/by-name/ad/adept2-runtime/package.nix b/pkgs/by-name/ad/adept2-runtime/package.nix
+index 5342ed743f05..b1a7836f635b 100644
+--- a/pkgs/by-name/ad/adept2-runtime/package.nix
++++ b/pkgs/by-name/ad/adept2-runtime/package.nix
+@@ -74,8 +74,14 @@ stdenv.mkDerivation (finalAttrs: {
+     EOF
+ 
+     cat > $out/etc/udev/rules.d/52-digilent-usb.rules <<EOF
+-    ACTION=="add", ATTR{idVendor}=="1443", GROUP+="plugdev", TAG+="uaccess"
+-    ACTION=="add", ATTR{idVendor}=="0403", ATTR{manufacturer}=="Digilent", GROUP+="plugdev", TAG+="uaccess", RUN+="$out/sbin/dftdrvdtch %s{busnum} %s{devnum}"
++    ATTR{idVendor}=="0403", ATTR{manufacturer}=="Digilent", ENV{ID_MM_DEVICE_IGNORE}="1"
++    ATTR{idVendor}=="0403", ATTR{manufacturer}=="Digilent", ENV{ID_MM_TTY_BLACKLIST}="1"
++    ATTR{idVendor}=="0403", ATTR{manufacturer}=="Digilent", ENV{MTP_NO_PROBE}="1"
++    ATTR{idVendor}=="0403", ATTR{manufacturer}=="Digilent", ENV{ID_MM_PORT_IGNORE}="1"
++    ATTR{idVendor}=="0403", ATTR{manufacturer}=="Digilent", ENV{ID_MM_TTY_MANUAL_SCAN_ONLY}="1"
++
++    ACTION=="add", ATTR{idVendor}=="1443", GROUP="plugdev", TAG+="uaccess"
++    ACTION=="add", ATTR{idVendor}=="0403", ATTR{manufacturer}=="Digilent", GROUP="plugdev", TAG+="uaccess", RUN+="$out/sbin/dftdrvdtch %s{busnum} %s{devnum}"
+     EOF
+ 
+     runHook postInstall

@@ -1,5 +1,12 @@
 { pkgs, ... }: {
-  services.udev.packages = [ pkgs.stlink ];
+  environment.systemPackages = with pkgs; [
+    waveforms
+  ];
+
+  services.udev.packages = with pkgs; [ 
+    stlink
+    adept2-runtime
+  ];
 
   # TODO: Abstract away user-specific configuration
   users.users.ignormies.extraGroups = [

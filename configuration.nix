@@ -100,8 +100,10 @@
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
+      "adept2-runtime"
       "discord"
       "spotify"
+      "waveforms"
     ];
 
   # fontconfig must be enabled in home-manager config

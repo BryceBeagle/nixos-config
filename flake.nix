@@ -31,9 +31,31 @@
     nixpkgs,
     nixos-hardware,
     ...
-  } @ inputs: {
+  } @ inputs: let 
+    remoteNixpkgsPatches = [
+      {
+        meta.description = "waveforms package PR";
+        url = "https://github.com/NixOS/nixpkgs/pull/394237.patch";
+        sha256 = "sha256-t7LLRfio7k1D0/7mBwVooSghdZrrWLr8NjQVUHpnWnc=";
+      }
+    ];
+    localNixpkgsPatches = [
+      ./patches/adept2-runtime-udev.patch
+    ];
+    originPackages = inputs.nixpkgs.legacyPackages."x86_64-linux";
+    nixpkgs = originPackages.applyPatches {
+      name = "nixpkgs-patched";
+      src = inputs.nixpkgs;
+      patches = (
+        map originPackages.fetchpatch remoteNixpkgsPatches
+        ++ localNixpkgsPatches
+      );
+    };
+    nixosSystem = import (nixpkgs + "/nixos/lib/eval-config.nix");
+  in {
     nixosConfigurations = {
-      poundcake = nixpkgs.lib.nixosSystem {
+      poundcake = nixosSystem {
+        system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
           nixos-hardware.nixosModules.framework-16-7040-amd
