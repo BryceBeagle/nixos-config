@@ -14,4 +14,3 @@
   - https://nixos.wiki
   - https://nix-community.github.io
   - https://vimhelp.org
-
