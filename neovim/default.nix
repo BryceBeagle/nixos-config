@@ -1,9 +1,11 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, ... }:
+{
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
 
     ./completion.nix
     ./debugging.nix
+    ./formatting.nix
     ./navigation.nix
     ./selection.nix
     ./terminal.nix
@@ -25,10 +27,10 @@
     };
     opts = {
       # Tabs/spaces
-      number = true;  # Show line numbers
-      tabstop = 4;  # 4 space tabs
-      expandtab = true;  # <Tab> turns into spaces
-      shiftwidth = 4;  # Shift+< and Shift+> indent 4 spaces
+      number = true; # Show line numbers
+      tabstop = 4; # 4 space tabs
+      expandtab = true; # <Tab> turns into spaces
+      shiftwidth = 4; # Shift+< and Shift+> indent 4 spaces
 
       shell = "fish";
     };
@@ -53,7 +55,7 @@
       lualine.enable = true;
       noice.enable = true;
       nvim-autopairs.enable = true;
-      web-devicons.enable = true;  # Used by neo-tree
+      web-devicons.enable = true; # Used by neo-tree
     };
 
     extraPlugins = [
