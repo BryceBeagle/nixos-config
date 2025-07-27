@@ -8,14 +8,21 @@
     ./security.nix
   ];
 
-  nix.settings = {
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-    flake-registry = "";
+  nix = {
+    channel.enable = false;
+
+    # Not sure if this is strictly required, but recommended by
+    # https://github.com/nix-community/nixd/blob/main/nixd/docs/configuration.md
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+
+    settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      flake-registry = "";
+    };
   };
-  nix.channel.enable = false;
 
   # Use systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -136,7 +143,7 @@
     # https://discourse.nixos.org/t/34506
     useGlobalPkgs = true;
 
-    users.ignormies = { lib, pkgs, ... }: {
+    users.ignormies = { pkgs, ... }: {
       imports = [
         inputs.impermanence.homeManagerModules.impermanence
         inputs.nix-colors.homeManagerModules.default

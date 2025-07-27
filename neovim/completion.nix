@@ -52,9 +52,27 @@
         };
 
         servers = {
-          nil_ls.enable = true;
           pyright.enable = true;
           ruff.enable = true;
+
+          nixd = {
+            enable = true;
+
+            # https://github.com/nix-community/nixd/blob/main/nixd/docs/configuration.md
+            settings = let
+              flake = ''(builtins.getFlake (builtins.toString ./.))'';
+              system = ''''${builtins.currentSystem}'';
+            in {
+              nixpkgs.expr = "import ${flake}.inputs.nixpkgs {}";
+
+              options = {
+                nixos.expr = ''${flake}.nixosConfigurations.poundcake.options'';
+                # This does not work for some reason:
+                # https://github.com/nix-community/nixd/issues/706
+                nixvim.expr = ''${flake}.inputs.nixvim.nixvimConfigurations.${system}.default.options'';
+              };
+            };
+          };
 
           rust_analyzer = {
             enable = true;
