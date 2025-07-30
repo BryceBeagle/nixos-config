@@ -33,7 +33,7 @@
   } @ inputs: {
     nixosConfigurations = {
       poundcake = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = {inherit inputs;};
         modules = [
           nixos-hardware.nixosModules.framework-16-7040-amd
           ./hardware-configuration.nix

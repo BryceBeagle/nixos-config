@@ -1,10 +1,9 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.nixvim = {
-
     opts = {
-      foldlevelstart = 999;  # ~Hack to keep things unfolded on file open
-      scrolloff = 999;  # ~Hack to keep cursor always at center of window
-      relativenumber = true;  # Use relative line numbers in gutter
+      foldlevelstart = 999; # ~Hack to keep things unfolded on file open
+      scrolloff = 999; # ~Hack to keep cursor always at center of window
+      relativenumber = true; # Use relative line numbers in gutter
     };
 
     keymaps = [
@@ -24,13 +23,13 @@
         action = ":Neotree filesystem toggle<CR>";
       }
       {
-        mode = [ "n" "x" ];
+        mode = ["n" "x"];
         key = "s";
         action = ":lua require('flash').jump()<CR>";
         options.desc = "flash";
       }
       {
-        mode = [ "n" "x" ];
+        mode = ["n" "x"];
         key = "S";
         action = ":lua require('flash').treesitter()<CR>";
         options.desc = "flash Treesitter";

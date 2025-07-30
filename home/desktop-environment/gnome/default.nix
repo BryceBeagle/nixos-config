@@ -1,4 +1,9 @@
-{ inputs, lib, pkgs, ... }: {
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ./just-perfection.nix
     ./paperwm.nix
@@ -6,7 +11,7 @@
 
   dconf.settings = with lib.hm.gvariant; {
     "org/gnome/desktop/input-sources" = {
-      sources = [ (mkTuple [ "xkb" "us" ]) ];
+      sources = [(mkTuple ["xkb" "us"])];
 
       # This duplicates the config in `xserver.xkb.options` due to (I think) an
       # upstream bug:
@@ -23,8 +28,8 @@
       text-scaling-factor = 1.25;
     };
     "org/gnome/desktop/peripherals/keyboard" = {
-      delay = (mkUint32 300);
-      repeat-interval = (mkUint32 15);
+      delay = mkUint32 300;
+      repeat-interval = mkUint32 15;
     };
     "org/gnome/desktop/peripherals/touchpad" = {
       natural-scroll = false;
@@ -34,7 +39,7 @@
       ambient-enabled = false;
     };
     "org/gnome/shell" = {
-      enabled-extensions = with pkgs.gnomeExtensions; [ 
+      enabled-extensions = with pkgs.gnomeExtensions; [
         paperwm.extensionUuid
       ];
     };
@@ -48,7 +53,7 @@
       colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
     in {
       name = colorScheme.slug;
-      package = (inputs.nix-colors.lib-contrib { inherit pkgs; }).gtkThemeFromScheme { scheme = colorScheme; };
+      package = (inputs.nix-colors.lib-contrib {inherit pkgs;}).gtkThemeFromScheme {scheme = colorScheme;};
     };
   };
 }

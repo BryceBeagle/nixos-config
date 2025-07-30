@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{inputs, ...}: {
   imports = [
     inputs.home-manager.nixosModules.home-manager
   ];
@@ -6,7 +6,7 @@
   security = {
     # Without this, impermanance makes sudo give lecture every reboot
     sudo.extraConfig = "Defaults lecture = never";
- 
+
     # Shorten delay-on-failure from 3 seconds to 0.5 seconds.
     # Technically this is less secure, but I'm not going to worry about a 6x
     # speed-up for brute forces.
@@ -16,7 +16,7 @@
         failDelay = {
           enable = true;
           delay = 500000;
-         };
+        };
       };
     in {
       login = shortenFailDelay;

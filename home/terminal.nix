@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   home.persistence."/persist/home/ignormies" = {
     directories = [
       # `direnv allow`-ed directories
@@ -32,5 +32,4 @@
       fish_greeting = "";
     };
   };
-
 }

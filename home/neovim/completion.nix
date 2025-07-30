@@ -1,4 +1,4 @@
-{ config, ... }: {
+{config, ...}: {
   programs.nixvim = {
     plugins = {
       colorful-menu.enable = true;

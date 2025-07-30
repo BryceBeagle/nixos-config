@@ -1,6 +1,5 @@
-{ ... }: {
+{...}: {
   programs.nixvim = {
-
     keymaps = [
       {
         mode = "t";
@@ -8,7 +7,6 @@
         action = "<C-\\><C-n>";
       }
     ];
-
 
     plugins = {
       toggleterm = {

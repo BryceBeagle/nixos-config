@@ -1,5 +1,9 @@
-{ inputs, lib, pkgs, ... }: {
-
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     inputs.impermanence.nixosModules.impermanence
 
@@ -14,7 +18,7 @@
 
     # Not sure if this is strictly required, but recommended by
     # https://github.com/nix-community/nixd/blob/main/nixd/docs/configuration.md
-    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
     settings = {
       experimental-features = [
@@ -73,7 +77,7 @@
 
     xserver = {
       enable = true;
-      excludePackages = [ pkgs.xterm ];
+      excludePackages = [pkgs.xterm];
 
       # If xkbOptions are set in dconf config, they shadow this. Do not do.
       # https://discourse.nixos.org/t/setting-caps-lock-as-ctrl-not-working/11952

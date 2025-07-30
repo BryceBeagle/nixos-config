@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  services.udev.packages = [ pkgs.stlink ];
+{pkgs, ...}: {
+  services.udev.packages = [pkgs.stlink];
 
   # TODO: Abstract away user-specific configuration
   users.users.ignormies.extraGroups = [

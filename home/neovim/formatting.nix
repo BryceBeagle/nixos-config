@@ -1,5 +1,8 @@
-{ lib, pkgs, ... }:
 {
+  lib,
+  pkgs,
+  ...
+}: {
   programs.nixvim = {
     plugins = {
       conform-nvim = {
@@ -7,8 +10,8 @@
 
         settings = {
           formatters_by_ft = {
-            nix = [ "nixfmt" ];
-            rust = [ "rustfmt" ];
+            nix = ["alejandra"];
+            rust = ["rustfmt"];
             _ = [
               "trim_newlines"
               "trim_whitespace"
@@ -16,7 +19,7 @@
           };
 
           formatters = {
-            nixfmt.command = lib.getExe pkgs.nixfmt-rfc-style;
+            alejandra.command = lib.getExe pkgs.alejandra;
             rustfmt.command = lib.getExe pkgs.rustfmt;
           };
 
