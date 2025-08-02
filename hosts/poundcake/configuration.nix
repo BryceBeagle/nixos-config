@@ -7,7 +7,7 @@
   imports = [
     inputs.impermanence.nixosModules.impermanence
 
-    ./home
+    ../../home
 
     ./embedded.nix
     ./security.nix
