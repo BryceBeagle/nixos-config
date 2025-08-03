@@ -1,19 +1,10 @@
 {inputs, ...}: {
-  imports = [
-    inputs.home-manager.nixosModules.home-manager
-  ];
-
   home-manager = {
     # Implicitly passed to all modules under 'imports'. `inputs' is not a default
     # 'specialArg', so it needs to be listed.
     extraSpecialArgs = {inherit inputs;};
 
-    # https://discourse.nixos.org/t/34506
-    useGlobalPkgs = true;
-
     users.ignormies = {pkgs, ...}: {
-      programs.home-manager.enable = true;
-
       # From https://wiki.nixos.org/wiki/Fonts:
       # > Nix inserts its user profile path into $XDG_DATA_DIRS, which Fontconfig by
       # > default doesn't look in. This cause graphical applications like KDE Plasma not
