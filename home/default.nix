@@ -12,10 +12,6 @@
     useGlobalPkgs = true;
 
     users.ignormies = {pkgs, ...}: {
-      imports = [
-        inputs.impermanence.homeManagerModules.impermanence
-      ];
-
       programs.home-manager.enable = true;
 
       # From https://wiki.nixos.org/wiki/Fonts:
@@ -42,7 +38,6 @@
           # Exercism API token stored here
           ".config/exercism/user.json"
         ];
-        allowOther = true;
       };
     };
   };

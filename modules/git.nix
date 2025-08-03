@@ -4,7 +4,7 @@ delib.module {
 
   options = delib.singleEnableOption true;
 
-  home.ifEnabled.home.persistence."/persist/home/ignormies" = {
+  myconfig.ifEnabled.persist.user = {
     directories = [
       "git"
     ];

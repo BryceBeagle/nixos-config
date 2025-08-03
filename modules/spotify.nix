@@ -13,13 +13,11 @@ delib.module {
     inputs.spicetify-nix.homeManagerModules.default
   ];
 
-  home.ifEnabled.home.persistence."/persist/home/ignormies" = {
-    directories = [
-      # Spotify API token stored here (in a file called `prefs`), but it recreates
-      # the file every time.
-      ".config/spotify/"
-    ];
-  };
+  myconfig.ifEnabled.persist.user.directories = [
+    # Spotify API token stored here (in a file called `prefs`), but it recreates
+    # the file every time.
+    ".config/spotify/"
+  ];
 
   home.ifEnabled.programs.spicetify = {
     enable = true;

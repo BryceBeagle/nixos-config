@@ -4,14 +4,12 @@ delib.module {
 
   options = delib.singleEnableOption true;
 
-  home.ifEnabled.home.persistence."/persist/home/ignormies" = {
-    directories = [
-      # `direnv allow`-ed directories
-      ".local/share/direnv/allow"
-      # fish_history. Needs to be dir because Fish overwrites symlinks
-      ".local/share/fish"
-    ];
-  };
+  myconfig.ifEnabled.persist.user.directories = [
+    # `direnv allow`-ed directories
+    ".local/share/direnv/allow"
+    # fish_history. Needs to be dir because Fish overwrites symlinks
+    ".local/share/fish"
+  ];
 
   home.ifEnabled.programs.direnv = {
     enable = true;

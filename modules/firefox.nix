@@ -9,7 +9,7 @@ delib.module {
 
   options = delib.singleEnableOption false;
 
-  home.ifEnabled.home.persistence."/persist/home/ignormies" = {
+  myconfig.ifEnabled.persist.user = {
     directories = [
       ".mozilla/firefox/default/extensions/"
       # Extension data is stored here, but also IndexedDB data for random websites

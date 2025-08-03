@@ -6,6 +6,13 @@ delib.host {
   home.home.stateVersion = "24.05";
 
   myconfig = {
+    persist = {
+      enable = true;
+
+      system.persistPath = "/persist";
+      user.persistPath = "/persist/home/ignormies";
+    };
+
     discord.enable = true;
     firefox.enable = true;
     spotify.enable = true;

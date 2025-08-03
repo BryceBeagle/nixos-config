@@ -8,15 +8,11 @@ delib.module {
 
   options = delib.singleEnableOption false;
 
-  home.ifEnabled = {
-    home.packages = with pkgs; [
-      discord
-    ];
+  myconfig.ifEnabled.persist.user.directories = [
+    ".config/discord"
+  ];
 
-    home.persistence."/persist/home/ignormies" = {
-      directories = [
-        ".config/discord"
-      ];
-    };
-  };
+  home.ifEnabled.home.packages = with pkgs; [
+    discord
+  ];
 }

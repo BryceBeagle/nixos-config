@@ -5,8 +5,6 @@
   ...
 }: {
   imports = [
-    inputs.impermanence.nixosModules.impermanence
-
     ../../home
 
     ./embedded.nix
@@ -37,7 +35,6 @@
       "/var/log/"
       "/var/lib/alsa/"
       "/var/lib/bluetooth/"
-      "/var/lib/nixos/"
       # Backlight value(s) from previous boot. The files in here are written at
       # poweroff and read at startup.
       # We could consider forcing a value into the file(s) instead of persisting
@@ -119,9 +116,6 @@
     noto-fonts-cjk-sans
     noto-fonts-emoji
   ];
-
-  # required for 'home-manager...home.persistence.allowOther = true'
-  programs.fuse.userAllowOther = true;
 
   programs.git.enable = true;
 
