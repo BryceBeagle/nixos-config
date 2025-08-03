@@ -1,5 +1,4 @@
 {
-  inputs,
   lib,
   pkgs,
   ...
@@ -10,22 +9,6 @@
     ./embedded.nix
     ./security.nix
   ];
-
-  nix = {
-    channel.enable = false;
-
-    # Not sure if this is strictly required, but recommended by
-    # https://github.com/nix-community/nixd/blob/main/nixd/docs/configuration.md
-    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
-
-    settings = {
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-      flake-registry = "";
-    };
-  };
 
   # Persist some system directories
   environment.persistence."/persist" = {
