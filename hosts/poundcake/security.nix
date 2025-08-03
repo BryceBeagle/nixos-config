@@ -25,16 +25,11 @@
   };
 
   users = {
-    # Prevent users created outside of nix config
-    mutableUsers = false;
-
     users.ignormies = {
-      isNormalUser = true;
       extraGroups = [
         # Use sudo
         "wheel"
       ];
-      initialPassword = "foobar";
     };
   };
 

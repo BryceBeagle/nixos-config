@@ -9,7 +9,10 @@ delib.module {
 
   options = with delib; let
     host = {
-      options = hostSubmoduleOptions;
+      options =
+        hostSubmoduleOptions
+        // {
+        };
     };
   in {
     host = hostOption host;

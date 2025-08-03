@@ -6,11 +6,13 @@ delib.module {
     "/etc/NetworkManager/system-connections/"
   ];
 
-  nixos.always = {
+  nixos.always = {myconfig, ...}: {
     networking.hostName = "poundcake";
     networking.networkmanager.enable = true;
 
     # Configure network settings
-    users.users.ignormies.extraGroups = ["networkmanager"];
+    users.users.${myconfig.user.username}.extraGroups = [
+      "networkmanager"
+    ];
   };
 }

@@ -6,6 +6,11 @@ delib.host {
   home.home.stateVersion = "24.05";
 
   myconfig = {
+    user = {
+      username = "ignormies";
+      initialPassword = "foobar";
+    };
+
     persist = {
       enable = true;
 
@@ -19,10 +24,6 @@ delib.host {
 
     desktop-environment.gnome.enable = true;
 
-    xdg = {
-      enable = true;
-
-      defaultApplications.pdf = ["firefox.desktop"];
-    };
+    xdg.defaultApplications.pdf = ["firefox.desktop"];
   };
 }
