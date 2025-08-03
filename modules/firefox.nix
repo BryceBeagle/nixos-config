@@ -1,9 +1,15 @@
 {
+  delib,
   inputs,
   pkgs,
   ...
-}: {
-  home.persistence."/persist/home/ignormies" = {
+}:
+delib.module {
+  name = "firefox";
+
+  options = delib.singleEnableOption false;
+
+  home.ifEnabled.home.persistence."/persist/home/ignormies" = {
     directories = [
       ".mozilla/firefox/default/extensions/"
       # Extension data is stored here, but also IndexedDB data for random websites
@@ -30,7 +36,7 @@
     ];
   };
 
-  programs.firefox = {
+  home.ifEnabled.programs.firefox = {
     enable = true;
     package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
       extraPolicies = {

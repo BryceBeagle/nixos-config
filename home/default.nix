@@ -18,7 +18,6 @@
 
         ./desktop-environment
 
-        ./firefox.nix
         ./git.nix
         ./spotify.nix
         ./terminal.nix

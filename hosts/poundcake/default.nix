@@ -5,5 +5,8 @@ delib.host {
   nixos.system.stateVersion = "24.05";
   home.home.stateVersion = "24.05";
 
-  myconfig.discord.enable = true;
+  myconfig = {
+    discord.enable = true;
+    firefox.enable = true;
+  };
 }
