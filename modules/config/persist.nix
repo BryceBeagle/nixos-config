@@ -50,7 +50,14 @@ delib.module {
           "/var/lib/nixos"
         ]
       );
-      files = cfg.system.files;
+      files = (
+        cfg.system.files
+        # Entries in this list will _always_ need to be persisted, regardless of
+        # configuration.
+        ++ [
+          "/etc/machine-id"
+        ]
+      );
     };
   };
 
