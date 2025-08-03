@@ -1,5 +1,12 @@
-{pkgs, ...}: {
-  programs.nixvim = {
+{
+  delib,
+  pkgs,
+  ...
+}:
+delib.module {
+  name = "neovim";
+
+  home.ifEnabled.programs.nixvim = {
     opts = {
       foldlevelstart = 999; # ~Hack to keep things unfolded on file open
       scrolloff = 999; # ~Hack to keep cursor always at center of window

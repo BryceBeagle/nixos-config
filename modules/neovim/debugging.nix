@@ -1,5 +1,8 @@
-{...}: {
-  programs.nixvim = {
+{delib, ...}:
+delib.module {
+  name = "neovim";
+
+  home.ifEnabled.programs.nixvim = {
     plugins = {
       dap-python.enable = true;
       dap-ui = {

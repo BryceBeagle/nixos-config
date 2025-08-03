@@ -1,9 +1,13 @@
 {
+  delib,
   lib,
   pkgs,
   ...
-}: {
-  programs.nixvim = {
+}:
+delib.module {
+  name = "neovim";
+
+  home.ifEnabled.programs.nixvim = {
     plugins = {
       conform-nvim = {
         enable = true;

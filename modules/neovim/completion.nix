@@ -1,5 +1,12 @@
-{config, ...}: {
-  programs.nixvim = {
+{
+  delib,
+  inputs,
+  ...
+}:
+delib.module {
+  name = "neovim";
+
+  home.ifEnabled.programs.nixvim = {
     plugins = {
       colorful-menu.enable = true;
 
@@ -21,15 +28,15 @@
             #
             # Ideally, there would be a dedicated option for this
             menu.draw = {
-              columns = config.lib.nixvim.utils.mkRaw ''
+              columns = inputs.nixvim.lib.nixvim.utils.mkRaw ''
                 { { "kind_icon" }, { "label", gap = 1 } }
               '';
               components = {
                 label = {
-                  text = config.lib.nixvim.utils.mkRaw ''
+                  text = inputs.nixvim.lib.nixvim.utils.mkRaw ''
                     require("colorful-menu").blink_components_text
                   '';
-                  highlight = config.lib.nixvim.utils.mkRaw ''
+                  highlight = inputs.nixvim.lib.nixvim.utils.mkRaw ''
                     require("colorful-menu").blink_components_highlight
                   '';
                 };

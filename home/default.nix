@@ -17,7 +17,6 @@
         inputs.nix-colors.homeManagerModules.default
 
         ./desktop-environment
-        ./neovim
 
         ./firefox.nix
         ./git.nix

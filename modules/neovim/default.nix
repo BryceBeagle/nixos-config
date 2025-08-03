@@ -1,22 +1,19 @@
 {
+  delib,
   inputs,
   pkgs,
   ...
-}: {
-  imports = [
-    inputs.nixvim.homeManagerModules.nixvim
+}:
+delib.module {
+  name = "neovim";
 
-    ./completion.nix
-    ./debugging.nix
-    ./formatting.nix
-    ./navigation.nix
-    ./selection.nix
-    ./terminal.nix
-    ./testing.nix
-    ./windows.nix
+  options = delib.singleEnableOption true;
+
+  home.always.imports = [
+    inputs.nixvim.homeManagerModules.nixvim
   ];
 
-  programs.nixvim = {
+  home.ifEnabled.programs.nixvim = {
     enable = true;
     defaultEditor = true;
 
