@@ -18,7 +18,6 @@
 
         ./desktop-environment
 
-        ./spotify.nix
         ./terminal.nix
         ./xdg.nix
       ];

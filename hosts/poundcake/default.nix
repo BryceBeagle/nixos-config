@@ -8,5 +8,6 @@ delib.host {
   myconfig = {
     discord.enable = true;
     firefox.enable = true;
+    spotify.enable = true;
   };
 }
