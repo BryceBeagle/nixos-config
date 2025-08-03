@@ -1,9 +1,16 @@
-{pkgs, ...}: {
-  home.packages = with pkgs.gnomeExtensions; [
+{
+  delib,
+  pkgs,
+  ...
+}:
+delib.module {
+  name = "desktop-environment.gnome";
+
+  home.ifEnabled.home.packages = with pkgs.gnomeExtensions; [
     just-perfection
   ];
 
-  dconf.settings = {
+  home.ifEnabled.dconf.settings = {
     "org/gnome/shell" = {
       enabled-extensions = with pkgs.gnomeExtensions; [
         just-perfection.extensionUuid

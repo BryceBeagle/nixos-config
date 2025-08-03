@@ -14,9 +14,6 @@
     users.ignormies = {pkgs, ...}: {
       imports = [
         inputs.impermanence.homeManagerModules.impermanence
-        inputs.nix-colors.homeManagerModules.default
-
-        ./desktop-environment
       ];
 
       programs.home-manager.enable = true;

@@ -1,9 +1,16 @@
-{pkgs, ...}: {
-  home.packages = with pkgs.gnomeExtensions; [
+{
+  delib,
+  pkgs,
+  ...
+}:
+delib.module {
+  name = "desktop-environment.gnome";
+
+  home.ifEnabled.home.packages = with pkgs.gnomeExtensions; [
     paperwm
   ];
 
-  dconf.settings = {
+  home.ifEnabled.dconf.settings = {
     "org/gnome/shell" = {
       enabled-extensions = with pkgs.gnomeExtensions; [
         paperwm.extensionUuid
@@ -25,5 +32,5 @@
   # Empty config file for now. Will populate in the future.
   # Having the empty file prevents `paperwm` from displaying a startup message
   # about creating the config dir.
-  xdg.configFile."paperwm/user.css".text = "";
+  home.ifEnabled.xdg.configFile."paperwm/user.css".text = "";
 }

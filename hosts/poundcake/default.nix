@@ -10,6 +10,8 @@ delib.host {
     firefox.enable = true;
     spotify.enable = true;
 
+    desktop-environment.gnome.enable = true;
+
     xdg = {
       enable = true;
 

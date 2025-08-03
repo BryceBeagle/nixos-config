@@ -1,15 +1,19 @@
 {
+  delib,
   inputs,
-  lib,
   pkgs,
   ...
-}: {
-  imports = [
-    ./just-perfection.nix
-    ./paperwm.nix
+}:
+delib.module {
+  name = "desktop-environment.gnome";
+
+  options = delib.singleEnableOption false;
+
+  home.always.imports = [
+    inputs.nix-colors.homeManagerModules.default
   ];
 
-  dconf.settings = with lib.hm.gvariant; {
+  home.ifEnabled.dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
     "org/gnome/desktop/input-sources" = {
       sources = [(mkTuple ["xkb" "us"])];
 
@@ -45,7 +49,7 @@
     };
   };
 
-  gtk = {
+  home.ifEnabled.gtk = {
     enable = true;
 
     theme = let
