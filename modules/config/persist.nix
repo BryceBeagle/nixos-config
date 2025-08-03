@@ -48,6 +48,7 @@ delib.module {
         # configuration.
         ++ [
           "/var/lib/nixos"
+          "/var/lib/systemd/coredump/"
         ]
       );
       files = (

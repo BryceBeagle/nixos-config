@@ -31,7 +31,6 @@
   environment.persistence."/persist" = {
     hideMounts = true;
     directories = [
-      "/etc/NetworkManager/system-connections/"
       "/var/log/"
       "/var/lib/bluetooth/"
       # Backlight value(s) from previous boot. The files in here are written at
@@ -39,12 +38,8 @@
       # We could consider forcing a value into the file(s) instead of persisting
       # the previous boot's state.
       "/var/lib/systemd/backlight/"
-      "/var/lib/systemd/coredump/"
     ];
   };
-
-  networking.hostName = "poundcake";
-  networking.networkmanager.enable = true;
 
   time.timeZone = "America/Los_Angeles";
 

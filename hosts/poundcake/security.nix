@@ -31,8 +31,6 @@
     users.ignormies = {
       isNormalUser = true;
       extraGroups = [
-        # Configure network settings
-        "networkmanager"
         # Use sudo
         "wheel"
       ];
