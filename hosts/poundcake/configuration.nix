@@ -33,7 +33,6 @@
     directories = [
       "/etc/NetworkManager/system-connections/"
       "/var/log/"
-      "/var/lib/alsa/"
       "/var/lib/bluetooth/"
       # Backlight value(s) from previous boot. The files in here are written at
       # poweroff and read at startup.
@@ -60,13 +59,6 @@
     displayManager.gdm.enable = true;
     fwupd.enable = true;
     gnome.core-apps.enable = false;
-
-    # Enable sound.
-    pipewire = {
-      enable = true;
-      # Use as primary audio server, in lieu of pulseaudio/jack
-      audio.enable = true;
-    };
 
     xserver = {
       enable = true;
