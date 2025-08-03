@@ -1,5 +1,10 @@
-{...}: {
-  home.persistence."/persist/home/ignormies" = {
+{delib, ...}:
+delib.module {
+  name = "terminal";
+
+  options = delib.singleEnableOption true;
+
+  home.ifEnabled.home.persistence."/persist/home/ignormies" = {
     directories = [
       # `direnv allow`-ed directories
       ".local/share/direnv/allow"
@@ -8,13 +13,13 @@
     ];
   };
 
-  programs.direnv = {
+  home.ifEnabled.programs.direnv = {
     enable = true;
 
     silent = true;
   };
 
-  programs.ghostty = {
+  home.ifEnabled.programs.ghostty = {
     enable = true;
 
     settings = {
@@ -24,7 +29,7 @@
     };
   };
 
-  programs.fish = {
+  home.ifEnabled.programs.fish = {
     enable = true;
 
     functions = {

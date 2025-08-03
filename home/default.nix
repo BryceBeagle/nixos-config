@@ -18,7 +18,6 @@
 
         ./desktop-environment
 
-        ./terminal.nix
         ./xdg.nix
       ];
 
