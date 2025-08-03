@@ -1,5 +1,10 @@
-{...}: {
-  home.persistence."/persist/home/ignormies" = {
+{delib, ...}:
+delib.module {
+  name = "git";
+
+  options = delib.singleEnableOption true;
+
+  home.ifEnabled.home.persistence."/persist/home/ignormies" = {
     directories = [
       "git"
     ];
@@ -9,13 +14,13 @@
     ];
   };
 
-  programs.git = {
+  home.ifEnabled.programs.git = {
     enable = true;
     userEmail = "bryce.beagle@gmail.com";
     userName = "ignormies";
   };
 
-  programs.gh = {
+  home.ifEnabled.programs.gh = {
     enable = true;
 
     settings.git_protocol = "ssh";
