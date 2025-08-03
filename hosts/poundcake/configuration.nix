@@ -109,14 +109,6 @@
       "spotify"
     ];
 
-  # fontconfig must be enabled in home-manager config
-  fonts.packages = with pkgs; [
-    noto-fonts
-    nerd-fonts.jetbrains-mono
-    noto-fonts-cjk-sans
-    noto-fonts-emoji
-  ];
-
   programs.git.enable = true;
 
   programs.zsh.enable = true;
