@@ -8,6 +8,11 @@
 
     nix-colors.url = "github:misterio77/nix-colors";
 
+    denix = {
+      url = "github:yunfachi/denix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,14 +31,23 @@
     };
   };
 
-  outputs = {nixpkgs, ...} @ inputs: {
-    nixosConfigurations = {
-      poundcake = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/poundcake
-        ];
+  outputs = {denix, ...} @ inputs: let
+    # `mkConfigurations` comes from the upstream `denix` docs without any changes (other
+    # than not having a `rices/` directory)
+    # https://yunfachi.github.io/denix/configurations/introduction#example
+    mkConfigurations = moduleSystem:
+      denix.lib.configurations rec {
+        inherit moduleSystem;
+
+        homeManagerUser = "ignormies";
+
+        paths = [./hosts ./modules];
+
+        specialArgs = {
+          inherit inputs moduleSystem homeManagerUser;
+        };
       };
-    };
+  in {
+    nixosConfigurations = mkConfigurations "nixos";
   };
 }

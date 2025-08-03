@@ -19,7 +19,6 @@
         ./desktop-environment
         ./neovim
 
-        ./discord.nix
         ./firefox.nix
         ./git.nix
         ./spotify.nix
@@ -46,10 +45,6 @@
         gnome-system-monitor
         gnome-tweaks
         nautilus
-
-        # Human programs
-        discord
-        timeshift
       ];
 
       home.persistence."/persist/home/ignormies" = {
@@ -59,8 +54,6 @@
         ];
         allowOther = true;
       };
-
-      home.stateVersion = "24.05";
     };
   };
 }

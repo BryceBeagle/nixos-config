@@ -1,8 +1,9 @@
-{inputs, ...}: {
-  imports = [
-    inputs.nixos-hardware.nixosModules.framework-16-7040-amd
+{delib, ...}:
+delib.host {
+  name = "poundcake";
 
-    ./hardware-configuration.nix
-    ./configuration.nix
-  ];
+  nixos.system.stateVersion = "24.05";
+  home.home.stateVersion = "24.05";
+
+  myconfig.discord.enable = true;
 }
