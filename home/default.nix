@@ -17,8 +17,6 @@
         inputs.nix-colors.homeManagerModules.default
 
         ./desktop-environment
-
-        ./xdg.nix
       ];
 
       programs.home-manager.enable = true;

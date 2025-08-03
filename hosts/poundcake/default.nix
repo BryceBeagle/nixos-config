@@ -9,5 +9,11 @@ delib.host {
     discord.enable = true;
     firefox.enable = true;
     spotify.enable = true;
+
+    xdg = {
+      enable = true;
+
+      defaultApplications.pdf = ["firefox.desktop"];
+    };
   };
 }
