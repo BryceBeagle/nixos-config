@@ -8,7 +8,10 @@ delib.module {
   name = "keyboard";
 
   nixos.always = {myconfig, ...}:
-    lib.mkIf myconfig.desktop-environment.enable {
+    {
+      console.keyMap = "us";
+    }
+    // lib.mkIf myconfig.desktop-environment.enable {
       # tbh, I'm not sure if this actually requires a display server to use?
       # This affects the TTYs too...
       services.xserver.xkb.options = "compose:ralt,ctrl:nocaps";
