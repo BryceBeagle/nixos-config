@@ -27,26 +27,10 @@ delib.module {
 
   home.ifEnabled = {
     dconf.settings = with inputs.home-manager.lib.hm.gvariant; {
-      "org/gnome/desktop/input-sources" = {
-        sources = [(mkTuple ["xkb" "us"])];
-
-        # This duplicates the config in `xserver.xkb.options` due to (I think) an
-        # upstream bug:
-        # https://github.com/BryceBeagle/nixos-config/issues/163
-        # https://discourse.nixos.org/t/suddenly-setting-caps-escape-in-xkb-settings-does-not-work-anymore/64714/6
-        xkb-options = [
-          "compose:ralt"
-          "ctrl:nocaps"
-        ];
-      };
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
         enable-hot-corners = false;
         text-scaling-factor = 1.25;
-      };
-      "org/gnome/desktop/peripherals/keyboard" = {
-        delay = mkUint32 300;
-        repeat-interval = mkUint32 15;
       };
       "org/gnome/desktop/peripherals/touchpad" = {
         natural-scroll = false;
