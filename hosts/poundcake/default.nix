@@ -22,7 +22,11 @@ delib.host {
     firefox.enable = true;
     spotify.enable = true;
 
-    desktop-environment.gnome.enable = true;
+    desktop-environment = {
+      enable = true;
+
+      gnome.enable = true;
+    };
 
     xdg.defaultApplications.pdf = ["firefox.desktop"];
   };

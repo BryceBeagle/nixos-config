@@ -29,26 +29,7 @@
     keyMap = "us";
   };
 
-  services = {
-    desktopManager.gnome.enable = true;
-    displayManager.gdm.enable = true;
-    fwupd.enable = true;
-    gnome.core-apps.enable = false;
-
-    xserver = {
-      enable = true;
-      excludePackages = [pkgs.xterm];
-
-      # If xkbOptions are set in dconf config, they shadow this. Do not do.
-      # https://discourse.nixos.org/t/setting-caps-lock-as-ctrl-not-working/11952
-      xkb.options = "compose:ralt,ctrl:nocaps";
-    };
-  };
-
-  environment.gnome.excludePackages = with pkgs; [
-    gnome-shell-extensions
-    gnome-tour
-  ];
+  services.fwupd.enable = true;
 
   # Globally enabled for all users
   environment.systemPackages = with pkgs; [
