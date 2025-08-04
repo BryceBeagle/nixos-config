@@ -32,9 +32,6 @@ delib.module {
         enable-hot-corners = false;
         text-scaling-factor = 1.25;
       };
-      "org/gnome/desktop/peripherals/touchpad" = {
-        natural-scroll = false;
-      };
       "org/gnome/settings-daemon/plugins/power" = {
         # Disable automatic screen brightness
         ambient-enabled = false;
