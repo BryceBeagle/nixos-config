@@ -21,8 +21,6 @@
 
   console.font = "Lat2-Terminus16";
 
-  services.fwupd.enable = true;
-
   # Globally enabled for all users
   environment.systemPackages = with pkgs; [
     # CLI tools
