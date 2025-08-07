@@ -5,8 +5,6 @@
 }: {
   imports = [
     ../../home
-
-    ./embedded.nix
   ];
 
   # Persist some system directories

@@ -29,5 +29,10 @@ delib.host {
     };
 
     xdg.defaultApplications.pdf = ["firefox.desktop"];
+
+    projects = {
+      embedded.enable = true;
+      exercism.enable = true;
+    };
   };
 }

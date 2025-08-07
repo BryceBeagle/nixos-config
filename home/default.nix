@@ -17,13 +17,6 @@
         gnome-tweaks
         nautilus
       ];
-
-      home.persistence."/persist/home/ignormies" = {
-        files = [
-          # Exercism API token stored here
-          ".config/exercism/user.json"
-        ];
-      };
     };
   };
 }
