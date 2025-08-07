@@ -1,4 +1,8 @@
-{delib, ...}:
+{
+  delib,
+  inputs,
+  ...
+}:
 delib.host {
   name = "poundcake";
 
@@ -37,4 +41,8 @@ delib.host {
       exercism.enable = true;
     };
   };
+
+  nixos.imports = [
+    inputs.nixos-hardware.nixosModules.framework-16-7040-amd
+  ];
 }
