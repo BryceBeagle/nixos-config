@@ -5,7 +5,7 @@
   ...
 }:
 delib.module {
-  name = "firefox";
+  name = "programs.firefox";
 
   options = delib.singleEnableOption false;
 

@@ -1,8 +1,8 @@
 {delib, ...}:
 delib.module {
-  name = "xdg";
+  name = "programs.xdg";
 
-  options.xdg = with delib; {
+  options.programs.xdg = with delib; {
     enable = boolOption true;
 
     defaultApplications = {

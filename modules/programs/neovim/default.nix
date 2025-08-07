@@ -5,13 +5,20 @@
   ...
 }:
 delib.module {
-  name = "neovim";
+  name = "programs.neovim";
 
   options = delib.singleEnableOption true;
 
   home.always.imports = [
     inputs.nixvim.homeManagerModules.nixvim
   ];
+
+  # Make neovim available to all users
+  nixos.ifEnabled.programs.neovim = {
+    enable = true;
+
+    defaultEditor = true;
+  };
 
   home.ifEnabled.programs.nixvim = {
     enable = true;

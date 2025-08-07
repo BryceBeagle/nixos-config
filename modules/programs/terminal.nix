@@ -4,7 +4,7 @@
   ...
 }:
 delib.module {
-  name = "terminal";
+  name = "programs.terminal";
 
   options = delib.singleEnableOption true;
 
@@ -41,12 +41,6 @@ delib.module {
 
       # Backup if fish isn't working for some reason
       zsh.enable = true;
-
-      neovim = {
-        enable = true;
-
-        defaultEditor = true;
-      };
     };
   };
 

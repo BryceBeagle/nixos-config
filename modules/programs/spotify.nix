@@ -5,7 +5,7 @@
   ...
 }:
 delib.module {
-  name = "spotify";
+  name = "programs.spotify";
 
   options = delib.singleEnableOption false;
 

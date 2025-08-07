@@ -1,6 +1,6 @@
 {delib, ...}:
 delib.module {
-  name = "neovim";
+  name = "programs.neovim";
 
   home.ifEnabled.programs.nixvim = {
     opts = {

@@ -4,7 +4,7 @@
   ...
 }:
 delib.module {
-  name = "discord";
+  name = "programs.discord";
 
   options = delib.singleEnableOption false;
 

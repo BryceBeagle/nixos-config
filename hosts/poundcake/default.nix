@@ -18,17 +18,19 @@ delib.host {
       user.persistRoot = "/persist/home/ignormies";
     };
 
-    discord.enable = true;
-    firefox.enable = true;
-    spotify.enable = true;
-
     desktop-environment = {
       enable = true;
 
       gnome.enable = true;
     };
 
-    xdg.defaultApplications.pdf = ["firefox.desktop"];
+    programs = {
+      discord.enable = true;
+      firefox.enable = true;
+      spotify.enable = true;
+
+      xdg.defaultApplications.pdf = ["firefox.desktop"];
+    };
 
     projects = {
       embedded.enable = true;
