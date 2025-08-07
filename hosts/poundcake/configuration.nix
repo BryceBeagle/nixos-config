@@ -7,7 +7,6 @@
     ../../home
 
     ./embedded.nix
-    ./security.nix
   ];
 
   # Persist some system directories

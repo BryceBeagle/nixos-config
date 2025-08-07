@@ -14,8 +14,8 @@ delib.host {
     persist = {
       enable = true;
 
-      system.persistPath = "/persist";
-      user.persistPath = "/persist/home/ignormies";
+      system.persistRoot = "/persist";
+      user.persistRoot = "/persist/home/ignormies";
     };
 
     discord.enable = true;

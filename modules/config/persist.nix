@@ -1,6 +1,7 @@
 {
   delib,
   inputs,
+  lib,
   ...
 }:
 delib.module {
@@ -13,23 +14,25 @@ delib.module {
     inputs.impermanence.homeManagerModules.impermanence
   ];
 
-  options.persist = with delib; {
+  options.persist = with delib; let
+    persistPathType = lib.types.oneOf [str attrsLegacy];
+  in {
     enable = boolOption false;
 
     system = {
       # Required because this cannot be deduced
-      persistPath = noDefault (strOption null);
+      persistRoot = noDefault (strOption null);
 
-      directories = listOfOption str [];
-      files = listOfOption str [];
+      directories = listOfOption persistPathType [];
+      files = listOfOption persistPathType [];
     };
 
     user = {
       # Required because this cannot be deduced
-      persistPath = noDefault (strOption null);
+      persistRoot = noDefault (strOption null);
 
-      directories = listOfOption str [];
-      files = listOfOption str [];
+      directories = listOfOption persistPathType [];
+      files = listOfOption persistPathType [];
     };
   };
 
@@ -37,7 +40,7 @@ delib.module {
     # required for 'home-manager...home.persistence.allowOther = true'
     programs.fuse.userAllowOther = true;
 
-    environment.persistence.${cfg.system.persistPath} = {
+    environment.persistence.${cfg.system.persistRoot} = {
       enable = true;
 
       hideMounts = true;
@@ -63,7 +66,7 @@ delib.module {
   };
 
   home.ifEnabled = {cfg, ...}: {
-    home.persistence."${cfg.user.persistPath}" = {
+    home.persistence."${cfg.user.persistRoot}" = {
       enable = true;
 
       allowOther = true;
