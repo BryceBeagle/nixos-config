@@ -10,6 +10,5 @@ delib.module {
     inputs.nixos-hardware.nixosModules.framework-16-7040-amd
 
     ../hosts/poundcake/hardware-configuration.nix
-    ../hosts/poundcake/configuration.nix
   ];
 }
