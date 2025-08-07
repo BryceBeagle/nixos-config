@@ -8,9 +8,13 @@ delib.module {
 
   options = delib.singleEnableOption false;
 
-  myconfig.ifEnabled.impermanence.user.directories = [
-    ".config/discord"
-  ];
+  myconfig.ifEnabled = {
+    impermanence.user.directories = [
+      ".config/discord"
+    ];
+
+    programs.unfree.allowUnfree = ["discord"];
+  };
 
   home.ifEnabled.home.packages = with pkgs; [
     discord

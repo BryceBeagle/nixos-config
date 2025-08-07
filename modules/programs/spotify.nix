@@ -9,14 +9,18 @@ delib.module {
 
   options = delib.singleEnableOption false;
 
+  myconfig.ifEnabled = {
+    impermanence.user.directories = [
+      # Spotify API token stored here (in a file called `prefs`), but it recreates
+      # the file every time.
+      ".config/spotify/"
+    ];
+
+    programs.unfree.allowUnfree = ["spotify"];
+  };
+
   home.always.imports = [
     inputs.spicetify-nix.homeManagerModules.default
-  ];
-
-  myconfig.ifEnabled.impermanence.user.directories = [
-    # Spotify API token stored here (in a file called `prefs`), but it recreates
-    # the file every time.
-    ".config/spotify/"
   ];
 
   home.ifEnabled.programs.spicetify = {
