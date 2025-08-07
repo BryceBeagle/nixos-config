@@ -20,6 +20,4 @@
       "discord"
       "spotify"
     ];
-
-  programs.git.enable = true;
 }

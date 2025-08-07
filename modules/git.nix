@@ -6,7 +6,7 @@ delib.module {
 
   myconfig.ifEnabled.impermanence.user = {
     directories = [
-      "git"
+      "git/"
     ];
     files = [
       # gh CLI stores credentials here
@@ -14,15 +14,20 @@ delib.module {
     ];
   };
 
-  home.ifEnabled.programs.git = {
-    enable = true;
-    userEmail = "bryce.beagle@gmail.com";
-    userName = "ignormies";
-  };
+  nixos.ifEnabled.programs.git.enable = true;
 
-  home.ifEnabled.programs.gh = {
-    enable = true;
+  home.ifEnabled.programs = {
+    git = {
+      enable = true;
 
-    settings.git_protocol = "ssh";
+      userEmail = "bryce.beagle@gmail.com";
+      userName = "ignormies";
+    };
+
+    gh = {
+      enable = true;
+
+      settings.git_protocol = "ssh";
+    };
   };
 }
