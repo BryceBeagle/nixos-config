@@ -8,7 +8,7 @@ delib.module {
 
   options = delib.singleEnableOption true;
 
-  myconfig.ifEnabled.persist.user.directories = [
+  myconfig.ifEnabled.impermanence.user.directories = [
     # `direnv allow`-ed directories
     ".local/share/direnv/allow"
     # fish_history. Needs to be dir because Fish overwrites symlinks

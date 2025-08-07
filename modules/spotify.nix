@@ -13,7 +13,7 @@ delib.module {
     inputs.spicetify-nix.homeManagerModules.default
   ];
 
-  myconfig.ifEnabled.persist.user.directories = [
+  myconfig.ifEnabled.impermanence.user.directories = [
     # Spotify API token stored here (in a file called `prefs`), but it recreates
     # the file every time.
     ".config/spotify/"

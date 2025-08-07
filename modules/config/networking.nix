@@ -2,7 +2,7 @@
 delib.module {
   name = "networking";
 
-  myconfig.always.persist.system.directories = [
+  myconfig.always.impermanence.system.directories = [
     "/etc/NetworkManager/system-connections/"
   ];
 

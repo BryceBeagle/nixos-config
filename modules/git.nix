@@ -4,7 +4,7 @@ delib.module {
 
   options = delib.singleEnableOption true;
 
-  myconfig.ifEnabled.persist.user = {
+  myconfig.ifEnabled.impermanence.user = {
     directories = [
       "git"
     ];

@@ -2,7 +2,7 @@
 delib.module {
   name = "logging";
 
-  myconfig.always.persist.system.directories = [
+  myconfig.always.impermanence.system.directories = [
     "/var/lib/systemd/coredump/"
     "/var/log/"
   ];

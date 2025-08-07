@@ -8,7 +8,7 @@ delib.module {
 
   options = delib.singleEnableOption false;
 
-  myconfig.ifEnabled.persist.user.directories = [
+  myconfig.ifEnabled.impermanence.user.directories = [
     ".config/discord"
   ];
 

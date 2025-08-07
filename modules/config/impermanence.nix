@@ -5,7 +5,7 @@
   ...
 }:
 delib.module {
-  name = "persist";
+  name = "impermanence";
 
   nixos.always.imports = [
     inputs.impermanence.nixosModules.impermanence
@@ -14,7 +14,7 @@ delib.module {
     inputs.impermanence.homeManagerModules.impermanence
   ];
 
-  options.persist = with delib; let
+  options.impermanence = with delib; let
     persistPathType = lib.types.oneOf [str attrsLegacy];
   in {
     enable = boolOption false;

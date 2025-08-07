@@ -3,7 +3,7 @@ delib.module {
   name = "security";
 
   myconfig.always = {myconfig, ...}: {
-    persist = {
+    impermanence = {
       system.directories = [
         # fprint stores fingerprints here. We'll persist for primary user
         {

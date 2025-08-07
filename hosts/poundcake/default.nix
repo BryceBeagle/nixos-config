@@ -11,7 +11,7 @@ delib.host {
       initialPassword = "foobar";
     };
 
-    persist = {
+    impermanence = {
       enable = true;
 
       system.persistRoot = "/persist";
