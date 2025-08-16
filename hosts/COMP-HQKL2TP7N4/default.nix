@@ -13,5 +13,9 @@ delib.host {
 
   myconfig = {
     user.username = "bryce.beagle";
+
+    programs.homebrew.enable = true;
+
+    desktop-environment.macos.enable = true;
   };
 }
