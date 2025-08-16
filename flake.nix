@@ -8,6 +8,10 @@
 
     nix-colors.url = "github:misterio77/nix-colors";
 
+    darwin = {
+      url = "github:nix-darwin/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     denix = {
       url = "github:yunfachi/denix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -41,7 +45,10 @@
 
         homeManagerUser = "ignormies";
 
-        paths = [./hosts ./modules];
+        paths = [
+          ./hosts
+          ./modules
+        ];
 
         specialArgs = {
           inherit inputs moduleSystem homeManagerUser;
@@ -49,5 +56,6 @@
       };
   in {
     nixosConfigurations = mkConfigurations "nixos";
+    darwinConfigurations = mkConfigurations "darwin";
   };
 }

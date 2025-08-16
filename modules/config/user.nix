@@ -21,4 +21,11 @@ delib.module {
       };
     };
   };
+
+  darwin.always = {cfg, ...}: {
+    users.users."${cfg.username}" = {
+      name = cfg.username;
+      home = "/Users/${cfg.username}/";
+    };
+  };
 }

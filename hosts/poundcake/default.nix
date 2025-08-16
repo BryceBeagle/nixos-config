@@ -33,7 +33,11 @@ delib.host {
       firefox.enable = true;
       spotify.enable = true;
 
-      xdg.defaultApplications.pdf = ["firefox.desktop"];
+      xdg = {
+        enable = true;
+
+        defaultApplications.pdf = ["firefox.desktop"];
+      };
     };
 
     projects = {

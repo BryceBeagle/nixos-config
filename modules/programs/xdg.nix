@@ -3,7 +3,7 @@ delib.module {
   name = "programs.xdg";
 
   options.programs.xdg = with delib; {
-    enable = boolOption true;
+    enable = boolOption false;
 
     defaultApplications = {
       pdf = listOfOption str [];

@@ -70,4 +70,17 @@ delib.module {
       };
     };
   };
+
+  darwin.always = {myconfig, ...}: {
+    # ghostty is marked as broken on darwin. We have to install it with homebrew.
+    # The home-manager config will still apply.
+    # https://github.com/NixOS/nixpkgs/issues/388984
+    homebrew.casks = ["ghostty"];
+    home-manager.users.${myconfig.user.username}.programs.ghostty.package = null;
+
+    # This uses the system-installed fish as the default user shell, but the config
+    # in home-manager will still apply
+    programs.fish.enable = true;
+    users.users.${myconfig.user.username}.shell = pkgs.fish;
+  };
 }

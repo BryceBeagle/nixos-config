@@ -17,6 +17,7 @@ delib.module {
   #
   # https://discourse.nixos.org/t/34506
   nixos.ifEnabled.home-manager.useGlobalPkgs = true;
+  darwin.ifEnabled.home-manager.useGlobalPkgs = true;
 
   home.ifEnabled.programs.home-manager.enable = true;
 }
