@@ -2,11 +2,8 @@
   delib,
   inputs,
   ...
-}:
-delib.module {
-  name = "nix";
-
-  nixos.always.nix = {
+}: let
+  baseNixConfiguration = {
     channel.enable = false;
 
     # Not sure if this is strictly required, but recommended by
@@ -21,4 +18,10 @@ delib.module {
       flake-registry = "";
     };
   };
-}
+in
+  delib.module {
+    name = "nix";
+
+    nixos.always.nix = baseNixConfiguration;
+    darwin.always.nix = baseNixConfiguration;
+  }
