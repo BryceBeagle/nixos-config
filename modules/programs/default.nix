@@ -12,6 +12,10 @@ delib.module {
     # Useful for LSPs and other file-editing
     cargo
     rust-analyzer
+
+    # TODO: Can probably delete this:
+    # https://github.com/BryceBeagle/nixos-config/issues/259
+    libinput
   ];
 
   home.always = {myconfig, ...}:
