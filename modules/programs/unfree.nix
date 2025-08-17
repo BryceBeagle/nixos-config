@@ -14,4 +14,9 @@ delib.module {
     nixpkgs.config.allowUnfreePredicate = pkg:
       builtins.elem (lib.getName pkg) cfg.allowUnfree;
   };
+
+  darwin.always = {cfg, ...}: {
+    nixpkgs.config.allowUnfreePredicate = pkg:
+      builtins.elem (lib.getName pkg) cfg.allowUnfree;
+  };
 }

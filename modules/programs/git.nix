@@ -1,33 +1,47 @@
-{delib, ...}:
+{
+  delib,
+  pkgs,
+  ...
+}:
 delib.module {
   name = "programs.git";
 
   options = delib.singleEnableOption true;
 
-  myconfig.ifEnabled.impermanence.user = {
-    directories = [
-      "git/"
-    ];
-    files = [
-      # gh CLI stores credentials here
-      ".config/gh/hosts.yml"
-    ];
+  myconfig.ifEnabled = {
+    impermanence.user = {
+      directories = [
+        "git/"
+      ];
+      files = [
+        # gh CLI stores credentials here
+        ".config/gh/hosts.yml"
+      ];
+    };
+
+    programs.unfree.allowUnfree = ["graphite-cli"];
   };
 
   nixos.ifEnabled.programs.git.enable = true;
 
-  home.ifEnabled.programs = {
-    git = {
-      enable = true;
+  home.ifEnabled = {
+    home.packages = with pkgs; [
+      graphite-cli
+    ];
 
-      userEmail = "bryce.beagle@gmail.com";
-      userName = "ignormies";
-    };
+    programs = {
+      git = {
+        enable = true;
 
-    gh = {
-      enable = true;
+        userEmail = "bryce.beagle@gmail.com";
+        userName = "ignormies";
+      };
 
-      settings.git_protocol = "ssh";
+      gh = {
+        enable = true;
+
+        settings.git_protocol = "ssh";
+      };
     };
   };
 }
