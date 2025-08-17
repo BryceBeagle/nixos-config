@@ -16,6 +16,7 @@
         "flakes"
       ];
       flake-registry = "";
+      use-registries = false;
     };
   };
 in
