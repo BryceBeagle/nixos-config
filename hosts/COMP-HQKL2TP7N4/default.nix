@@ -18,6 +18,9 @@ delib.host {
 
     programs.homebrew.enable = true;
 
-    extras.bazel.enable = true;
+    extras = {
+      bazel.enable = true;
+      jetbrains.enable = true;
+    };
   };
 }
