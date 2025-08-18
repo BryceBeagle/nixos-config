@@ -23,6 +23,8 @@ delib.module {
   };
 
   darwin.always = {cfg, ...}: {
+    system.primaryUser = cfg.username;
+
     users.users."${cfg.username}" = {
       name = cfg.username;
       home = "/Users/${cfg.username}/";
