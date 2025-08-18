@@ -40,7 +40,7 @@ delib.host {
       };
     };
 
-    projects = {
+    extras = {
       embedded.enable = true;
       exercism.enable = true;
     };

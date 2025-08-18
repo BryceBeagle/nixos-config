@@ -4,7 +4,7 @@
   ...
 }:
 delib.module {
-  name = "projects.embedded";
+  name = "extras.embedded";
 
   options = delib.singleEnableOption false;
 

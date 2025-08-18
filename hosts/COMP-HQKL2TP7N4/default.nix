@@ -18,6 +18,6 @@ delib.host {
 
     programs.homebrew.enable = true;
 
-    projects.bazel.enable = true;
+    extras.bazel.enable = true;
   };
 }

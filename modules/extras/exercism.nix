@@ -1,6 +1,6 @@
 {delib, ...}:
 delib.module {
-  name = "projects.exercism";
+  name = "extras.exercism";
 
   options = delib.singleEnableOption false;
 
