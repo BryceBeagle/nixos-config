@@ -59,6 +59,7 @@ delib.module {
         };
 
         servers = {
+          bashls.enable = true;
           pyright.enable = true;
           ruff.enable = true;
 
