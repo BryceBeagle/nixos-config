@@ -1,9 +1,9 @@
 {delib, ...}:
 delib.module {
-  name = "programs.xdg";
+  name = "desktop-environment.xdg";
 
-  options.programs.xdg = with delib; {
-    enable = boolOption false;
+  options.desktop-environment.xdg = with delib; {
+    enable = boolOption true;
 
     defaultApplications = {
       pdf = listOfOption str [];

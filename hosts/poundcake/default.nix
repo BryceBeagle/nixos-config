@@ -26,18 +26,18 @@ delib.host {
       enable = true;
 
       gnome.enable = true;
-    };
-
-    programs = {
-      discord.enable = true;
-      firefox.enable = true;
-      spotify.enable = true;
 
       xdg = {
         enable = true;
 
         defaultApplications.pdf = ["firefox.desktop"];
       };
+    };
+
+    programs = {
+      discord.enable = true;
+      firefox.enable = true;
+      spotify.enable = true;
     };
 
     extras = {
