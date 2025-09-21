@@ -48,6 +48,7 @@ delib.module {
       flash.enable = true;
       neoscroll.enable = true;
       nvim-ufo.enable = true;
+      web-devicons.enable = true; # Used by neo-tree
 
       neo-tree = {
         enable = true;

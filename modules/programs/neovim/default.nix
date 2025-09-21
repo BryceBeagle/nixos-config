@@ -56,13 +56,10 @@ delib.module {
     };
 
     plugins = {
-      diffview.enable = true;
       direnv.enable = true;
-      gitgutter.enable = true;
       lualine.enable = true;
       noice.enable = true;
       nvim-autopairs.enable = true;
-      web-devicons.enable = true; # Used by neo-tree
     };
 
     extraPlugins = [
