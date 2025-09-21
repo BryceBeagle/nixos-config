@@ -16,5 +16,11 @@ delib.module {
       gtk.gtk3.bookmarks = [
         "file:///tmp"
       ];
+
+      dconf.settings = {
+        "org/gnome/nautilus/preferences" = {
+          default-folder-viewer = "list-view";
+        };
+      };
     };
 }
