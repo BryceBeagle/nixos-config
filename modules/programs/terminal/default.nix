@@ -5,6 +5,7 @@
 }: let
   terminalPrograms = with pkgs; [
     curl
+    dive
     erdtree
     jq
     just
