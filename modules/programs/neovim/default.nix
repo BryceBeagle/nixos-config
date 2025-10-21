@@ -22,6 +22,9 @@ delib.module {
 
   home.ifEnabled.programs.nixvim = {
     enable = true;
+
+    nixpkgs.useGlobalPackages = true;
+
     defaultEditor = true;
 
     viAlias = true;
@@ -64,14 +67,6 @@ delib.module {
 
     extraPlugins = [
       (pkgs.vimUtils.buildVimPlugin {
-        name = "claude-code-nvim";
-        src = builtins.fetchGit {
-          url = "https://github.com/greggh/claude-code.nvim";
-          ref = "refs/tags/v0.4.3";
-          rev = "d1dbc6b7025c4f034e14cc0dda6d29d5a6a5c4e8";
-        };
-      })
-      (pkgs.vimUtils.buildVimPlugin {
         name = "tiny-inline-diagnostic";
         src = builtins.fetchGit {
           url = "https://github.com/rachartier/tiny-inline-diagnostic.nvim";
@@ -81,7 +76,6 @@ delib.module {
     ];
 
     extraConfigLuaPost = ''
-      require("claude-code").setup()
       require("tiny-inline-diagnostic").setup()
     '';
   };
