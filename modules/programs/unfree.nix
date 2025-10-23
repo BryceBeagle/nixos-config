@@ -14,7 +14,7 @@ delib.module {
   # enabled. But on machines with only home-manager, this is used.
   home.always = {cfg, ...}: {
     nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) cfg.allowUnfree;
+      builtins.elem (lib.getName pkg) cfg.allowUnfree;
   };
 
   nixos.always = {cfg, ...}: {

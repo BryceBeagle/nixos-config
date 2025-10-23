@@ -28,6 +28,10 @@ delib.module {
       # TODO: Also, consider moving this to desktop-environment settings
       window-decoration = lib.mkIf pkgs.stdenv.isLinux "none";
       macos-titlebar-style = lib.mkIf pkgs.stdenv.isDarwin "hidden";
+
+      # Support SSH terminals that do not know about ghostty
+      # https://ghostty.org/docs/help/terminfo
+      shell-integration-features = "ssh-terminfo";
     };
   };
 }
