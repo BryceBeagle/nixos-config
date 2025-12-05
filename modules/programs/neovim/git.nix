@@ -10,7 +10,7 @@ delib.module {
       gitlinker = {
         enable = true;
 
-        actionCallback = "open_in_browser";
+        settings.opt.action_callback = "open_in_browser";
       };
     };
   };

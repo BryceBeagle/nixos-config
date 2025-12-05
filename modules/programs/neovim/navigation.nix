@@ -53,13 +53,10 @@ delib.module {
       neo-tree = {
         enable = true;
 
-        closeIfLastWindow = true;
-        popupBorderStyle = "rounded";
-
-        extraOptions = {
-          open_files_do_not_replace_types = [
-            "terminal"
-          ];
+        settings = {
+          close_if_last_window = true;
+          open_files_do_not_replace_types = ["terminal"];
+          popup_border_style = "rounded";
         };
       };
       telescope = {

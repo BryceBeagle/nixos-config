@@ -26,7 +26,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
-      url = "github:nix-community/nixvim";
+      # Locked to this commit temporarily due to:
+      # https://github.com/nix-community/nixvim/pull/4025#issuecomment-3615622106
+      url = "github:nix-community/nixvim?rev=f15023fcccf34fcae4f86fdaafc576ef027b47e0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix = {

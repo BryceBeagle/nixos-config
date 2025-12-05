@@ -33,8 +33,10 @@ delib.module {
       git = {
         enable = true;
 
-        userEmail = "bryce.beagle@gmail.com";
-        userName = "ignormies";
+        settings = {
+          user.email = "bryce.beagle@gmail.com";
+          user.name = "ignormies";
+        };
       };
 
       gh = {

@@ -66,7 +66,7 @@ delib.module {
         };
       };
 
-      extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
+      extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
         bitwarden
         darkreader
         ublock-origin

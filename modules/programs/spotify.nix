@@ -26,6 +26,6 @@ delib.module {
   home.ifEnabled.programs.spicetify = {
     enable = true;
 
-    theme = inputs.spicetify-nix.legacyPackages.${pkgs.system}.themes.catppuccin;
+    theme = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system}.themes.catppuccin;
   };
 }

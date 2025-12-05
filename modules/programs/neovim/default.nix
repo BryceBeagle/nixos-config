@@ -10,7 +10,7 @@ delib.module {
   options = delib.singleEnableOption true;
 
   home.always.imports = [
-    inputs.nixvim.homeManagerModules.nixvim
+    inputs.nixvim.homeModules.nixvim
   ];
 
   # Make neovim available to all users

@@ -11,7 +11,7 @@ delib.module {
     noto-fonts
     nerd-fonts.jetbrains-mono
     noto-fonts-cjk-sans
-    noto-fonts-emoji
+    noto-fonts-color-emoji
   ];
 
   # From https://wiki.nixos.org/wiki/Fonts:
