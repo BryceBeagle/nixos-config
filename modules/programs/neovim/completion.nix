@@ -81,13 +81,24 @@ delib.module {
               };
             };
           };
+        };
+      };
 
-          rust_analyzer = {
-            enable = true;
+      rustaceanvim = {
+        enable = true;
 
-            # Use system-installed packages
-            installRustc = false;
-            installCargo = false;
+        settings = {
+          # https://rust-analyzer.github.io/book/configuration
+          # https://github.com/rust-lang/rust-analyzer/blob/master/editors/code/package.json
+          server.default_settings.rust_analyzer = {
+            check.command = "clippy";
+            inlayHints = {
+              closureCaptureHints.enable = true;
+              closureReturnTypeHints.enable = "with_block";
+              discriminantHints.enable = "fieldless";
+              lifetimeElisionHints.enable = "skip_trivial";
+              renderColons = false;
+            };
           };
         };
       };
