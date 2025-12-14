@@ -8,9 +8,7 @@ delib.module {
 
   home.ifEnabled.programs.nixvim = {
     opts = {
-      foldlevelstart = 999; # ~Hack to keep things unfolded on file open
       scrolloff = 999; # ~Hack to keep cursor always at center of window
-      relativenumber = true; # Use relative line numbers in gutter
     };
 
     keymaps = [
