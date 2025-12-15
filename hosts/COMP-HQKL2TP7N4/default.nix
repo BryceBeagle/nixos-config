@@ -16,7 +16,10 @@ delib.host {
 
     desktop-environment.macos.enable = true;
 
-    programs.homebrew.enable = true;
+    programs = {
+      homebrew.enable = true;
+      spotify.enable = true;
+    };
 
     extras = {
       ai.enable = true;
