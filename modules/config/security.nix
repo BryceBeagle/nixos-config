@@ -45,4 +45,9 @@ delib.module {
       };
     };
   };
+
+  darwin.always = {
+    # Enable TouchID to be used for sudo
+    security.pam.services.sudo_local.touchIdAuth = true;
+  };
 }
