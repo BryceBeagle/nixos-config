@@ -26,6 +26,10 @@ delib.module {
       window-decoration = lib.mkIf pkgs.stdenv.hostPlatform.isLinux "none";
       macos-titlebar-style = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin "hidden";
 
+      # Default true on Linux, false on MacOS
+      # We want it always off
+      quit-after-last-window-closed = true;
+
       # Support SSH terminals that do not know about ghostty
       # https://ghostty.org/docs/help/terminfo
       shell-integration-features = "ssh-terminfo";
