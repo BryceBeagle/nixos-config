@@ -12,4 +12,8 @@ delib.module {
     alt-tab-macos
     ice-bar
   ];
+
+  darwin.ifEnabled.system.defaults = {
+    dock.show-recents = false;
+  };
 }
