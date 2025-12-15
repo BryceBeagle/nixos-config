@@ -14,6 +14,11 @@ delib.module {
   ];
 
   darwin.ifEnabled.system.defaults = {
-    dock.show-recents = false;
+    dock = {
+      autohide = true;
+      show-recents = false;
+      static-only = true; # only show opened applications
+      tilesize = 15; # teeny tiny. 20 is the typical minimum using dragger
+    };
   };
 }
