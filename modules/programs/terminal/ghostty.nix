@@ -26,6 +26,12 @@ delib.module {
       window-decoration = lib.mkIf pkgs.stdenv.hostPlatform.isLinux "none";
       macos-titlebar-style = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin "hidden";
 
+      # Always create new windows in fullscreen on MacOS. This is esp. useful for the
+      # first window at initial startup.
+      #
+      # We want the tiling window manager to control this on Linux
+      fullscreen = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin true;
+
       # Default true on Linux, false on MacOS
       # We want it always off
       quit-after-last-window-closed = true;
