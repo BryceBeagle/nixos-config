@@ -8,6 +8,12 @@ delib.module {
 
   options = delib.singleEnableOption true;
 
+  darwin.ifEnabled.system.defaults = {
+    finder = {
+      ShowPathbar = true;
+    };
+  };
+
   home.ifEnabled = {myconfig, ...}:
     lib.mkIf myconfig.desktop-environment.gnome.enable {
       # These appear in the sidebar of GTK file explorer applications such as nautilus.
