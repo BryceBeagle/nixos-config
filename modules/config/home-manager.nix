@@ -1,6 +1,7 @@
 {
   delib,
   inputs,
+  pkgs,
   ...
 }:
 delib.module {
@@ -19,5 +20,15 @@ delib.module {
   nixos.ifEnabled.home-manager.useGlobalPkgs = true;
   darwin.ifEnabled.home-manager.useGlobalPkgs = true;
 
-  home.ifEnabled.programs.home-manager.enable = true;
+  home.ifEnabled = {
+    programs.home-manager.enable = true;
+
+    # Copy apps to ~/Applications for indexing by Spotlight
+    # https://github.com/NixOS/nixpkgs/issues/388984
+    # https://github.com/NixOS/nixpkgs/pull/405449
+    #
+    # This becomes the default with systemVersion >= 25.11
+    targets.darwin.copyApps.enable = pkgs.stdenv.hostPlatform.isDarwin;
+    targets.darwin.linkApps.enable = false;
+  };
 }

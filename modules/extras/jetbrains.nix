@@ -1,11 +1,18 @@
-{delib, ...}:
+{
+  delib,
+  pkgs,
+  ...
+}:
 delib.module {
   name = "extras.jetbrains";
 
   options = delib.singleEnableOption false;
 
-  # Ideally this would be installed via `home-manager` but there are issues with
-  # nix-darwin and GUI programs.
-  # https://github.com/BryceBeagle/nixos-config/issues/245
-  darwin.ifEnabled.homebrew.casks = ["intellij-idea"];
+  myconfig.ifEnabled = {
+    programs.unfree.allowUnfree = ["idea-ultimate"];
+  };
+
+  home.ifEnabled.home.packages = with pkgs; [
+    jetbrains.idea-ultimate
+  ];
 }

@@ -9,16 +9,13 @@ delib.module {
 
   options = delib.singleEnableOption true;
 
-  darwin.ifEnabled = {myconfig, ...}: {
-    # ghostty is marked as broken on darwin. We have to install it with homebrew.
-    # The home-manager config will still apply.
-    # https://github.com/NixOS/nixpkgs/issues/388984
-    homebrew.casks = ["ghostty"];
-    home-manager.users.${myconfig.user.username}.programs.ghostty.package = null;
-  };
-
   home.ifEnabled.programs.ghostty = {
     enable = true;
+
+    # The main ghostty package is marked as broken on darwin
+    # https://github.com/NixOS/nixpkgs/issues/388984
+    # https://github.com/NixOS/nixpkgs/pull/405449
+    package = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin pkgs.ghostty-bin;
 
     settings = {
       cursor-invert-fg-bg = true;
@@ -26,8 +23,8 @@ delib.module {
 
       # TODO: denix doesn't provide a way to do linux- or darwin-only home config
       # TODO: Also, consider moving this to desktop-environment settings
-      window-decoration = lib.mkIf pkgs.stdenv.isLinux "none";
-      macos-titlebar-style = lib.mkIf pkgs.stdenv.isDarwin "hidden";
+      window-decoration = lib.mkIf pkgs.stdenv.hostPlatform.isLinux "none";
+      macos-titlebar-style = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin "hidden";
 
       # Support SSH terminals that do not know about ghostty
       # https://ghostty.org/docs/help/terminfo
