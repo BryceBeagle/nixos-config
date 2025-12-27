@@ -104,7 +104,14 @@ delib.module {
         "browser.urlbar.suggest.pocket" = false;
         "extensions.pocket.enabled" = false;
 
-        # Prevent Firefox from warning before going to about:config
+        # AI junk
+        "browser.ml.enable" = false;
+        "browser.ml.chat.enable" = false;
+        "browser.ml.chat.menu" = false;
+        "browser.ml.chat.page" = false;
+        "browser.ml.chat.sidebar" = false;
+
+        # Prevent Firefox from warning about going to about:config
         "browser.aboutConfig.showWarning" = false;
 
         # Don't try to store passwords. Using Bitwarden for this
@@ -116,7 +123,7 @@ delib.module {
         # Prevent Firefox from suggesting to re-open tabs from last session
         "browser.startup.couldRestoreSession.count" = -1;
 
-        # Default Ctrl-F to highlight all results by default
+        # Make Ctrl-F highlight all results by default
         "findbar.highlightAll" = true;
 
         # Allow extensions to be auto-enabled
