@@ -38,6 +38,7 @@ delib.host {
       discord.enable = true;
       firefox.enable = true;
       spotify.enable = true;
+      steam.enable = true;
     };
 
     extras = {
