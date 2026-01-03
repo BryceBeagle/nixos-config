@@ -43,6 +43,13 @@ delib.host {
     extras = {
       embedded.enable = true;
       exercism.enable = true;
+
+      egpu = {
+        enable = true;
+
+        vendorId = "0x1002"; # AMD
+        deviceId = "0x731f"; # Radeon RX 5700 XT
+      };
     };
   };
 
