@@ -23,6 +23,11 @@ in
   delib.module {
     name = "nix";
 
+    myconfig.always.impermanence.user.files = [
+      # 'nix repl' history
+      ".local/share/nix/repl-history"
+    ];
+
     nixos.always.nix = baseNixConfiguration;
     darwin.always.nix = baseNixConfiguration;
   }
