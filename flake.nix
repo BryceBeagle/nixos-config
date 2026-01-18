@@ -26,6 +26,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixvim = {
       # Locked to this commit temporarily due to:
       # https://github.com/nix-community/nixvim/pull/4025#issuecomment-3615622106
