@@ -27,7 +27,7 @@ delib.module {
 
         # Programs
         "Mod+T" = {
-          action.spawn = "ghostty";
+          action.spawn = lib.getExe pkgs.ghostty;
           hotkey-overlay.title = "Terminal";
           repeat = false;
         };

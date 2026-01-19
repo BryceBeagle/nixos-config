@@ -40,6 +40,10 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    vicinae-extensions = {
+      url = "github:vicinaehq/extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {denix, ...} @ inputs: let

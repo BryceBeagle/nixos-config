@@ -476,7 +476,8 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "nixvim": "nixvim",
-        "spicetify-nix": "spicetify-nix"
+        "spicetify-nix": "spicetify-nix",
+        "vicinae-extensions": "vicinae-extensions"
       }
     },
     "spicetify-nix": {
@@ -542,6 +543,68 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_4": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "vicinae": {
+      "inputs": {
+        "nixpkgs": [
+          "vicinae-extensions",
+          "nixpkgs"
+        ],
+        "systems": [
+          "vicinae-extensions",
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1763768455,
+        "narHash": "sha256-ZwqW2uH36vPUKrlbzDyz7NoFXKjJOT1Ijvlaz4sIp8E=",
+        "owner": "vicinaehq",
+        "repo": "vicinae",
+        "rev": "5c965e0777dc4bcb01808c7f214dc56f997bd9c7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vicinaehq",
+        "repo": "vicinae",
+        "type": "github"
+      }
+    },
+    "vicinae-extensions": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": "systems_4",
+        "vicinae": "vicinae"
+      },
+      "locked": {
+        "lastModified": 1768784663,
+        "narHash": "sha256-bDC2q3GlDjEE5J2SPHpIdbYKcuLDw3fsxSh3emMOEXU=",
+        "owner": "vicinaehq",
+        "repo": "extensions",
+        "rev": "cc3326e7e07b4d2d0aa9ebc1a54ee3b0fb1db469",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vicinaehq",
+        "repo": "extensions",
         "type": "github"
       }
     },
