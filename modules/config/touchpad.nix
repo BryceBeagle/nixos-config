@@ -15,11 +15,16 @@ delib.module {
   };
 
   home.always = {myconfig, ...}:
-    lib.mkIf myconfig.desktop-environment.gnome.enable {
-      dconf.settings = {
-        "org/gnome/desktop/peripherals/touchpad" = {
-          natural-scroll = false;
+    lib.mkMerge [
+      (lib.mkIf myconfig.desktop-environment.gnome.enable {
+        dconf.settings = {
+          "org/gnome/desktop/peripherals/touchpad" = {
+            natural-scroll = false;
+          };
         };
-      };
-    };
+      })
+      (lib.mkIf myconfig.desktop-environment.niri.enable {
+        programs.niri.settings.input.touchpad.natural-scroll = false;
+      })
+    ];
 }
