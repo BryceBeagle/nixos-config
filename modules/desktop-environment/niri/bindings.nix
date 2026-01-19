@@ -1,4 +1,9 @@
-{delib, ...}:
+{
+  delib,
+  lib,
+  pkgs,
+  ...
+}:
 delib.module {
   name = "desktop-environment.niri";
 
@@ -24,6 +29,11 @@ delib.module {
         "Mod+T" = {
           action.spawn = "ghostty";
           hotkey-overlay.title = "Terminal";
+          repeat = false;
+        };
+        "Mod+D" = {
+          action.spawn = [(lib.getExe pkgs.vicinae) "toggle"];
+          hotkey-overlay.title = "App Launcher";
           repeat = false;
         };
 
