@@ -28,6 +28,8 @@ delib.host {
       gnome.enable = true;
       niri.enable = true;
 
+      gdm.defaultSession = "niri";
+
       xdg = {
         enable = true;
 

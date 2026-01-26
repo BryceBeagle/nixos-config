@@ -8,13 +8,9 @@ delib.module {
 
   options = delib.singleEnableOption true;
 
-  nixos.ifEnabled.services = {
-    displayManager.gdm.enable = true;
+  nixos.ifEnabled.services.xserver = {
+    enable = true;
 
-    xserver = {
-      enable = true;
-
-      excludePackages = [pkgs.xterm];
-    };
+    excludePackages = [pkgs.xterm];
   };
 }
