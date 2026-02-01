@@ -1,7 +1,7 @@
 {
   delib,
-  lib,
   inputs,
+  lib,
   ...
 }:
 delib.module {
@@ -28,10 +28,6 @@ delib.module {
           # https://github.com/BryceBeagle/nixos-config/issues/163
           # https://discourse.nixos.org/t/suddenly-setting-caps-escape-in-xkb-settings-does-not-work-anymore/64714/6
           xkb-options = ["compose:ralt" "ctrl:nocaps"];
-        };
-        "org/gnome/desktop/peripherals/keyboard" = {
-          delay = mkUint32 300;
-          repeat-interval = mkUint32 15;
         };
       };
     };
