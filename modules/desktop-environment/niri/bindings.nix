@@ -31,7 +31,7 @@ delib.module {
           hotkey-overlay.title = "Terminal";
           repeat = false;
         };
-        "Mod+D" = {
+        "Mod+Space" = {
           action.spawn = [(lib.getExe pkgs.vicinae) "toggle"];
           hotkey-overlay.title = "App Launcher";
           repeat = false;
