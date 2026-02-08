@@ -66,12 +66,6 @@ delib.module {
         };
       };
 
-      extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
-        bitwarden
-        darkreader
-        ublock-origin
-      ];
-
       settings = {
         # First launch
         "app.normandy.first_run" = false;
