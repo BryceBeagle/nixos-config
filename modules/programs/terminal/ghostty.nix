@@ -19,7 +19,6 @@ delib.module {
 
     settings = {
       cursor-invert-fg-bg = true;
-      theme = "Catppuccin Macchiato";
 
       # TODO: denix doesn't provide a way to do linux- or darwin-only home config
       # TODO: Also, consider moving this to desktop-environment settings

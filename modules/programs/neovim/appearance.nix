@@ -9,11 +9,5 @@ delib.module {
       relativenumber = true; # Use relative line numbers in gutter
       wrap = false;
     };
-
-    colorschemes.catppuccin = {
-      enable = true;
-
-      settings.flavour = "macchiato";
-    };
   };
 }

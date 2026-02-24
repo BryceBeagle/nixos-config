@@ -1,9 +1,4 @@
-{
-  delib,
-  inputs,
-  pkgs,
-  ...
-}:
+{delib, ...}:
 delib.module {
   name = "programs.spotify";
 
@@ -34,13 +29,5 @@ delib.module {
     ];
   };
 
-  home.always.imports = [
-    inputs.spicetify-nix.homeManagerModules.default
-  ];
-
-  home.ifEnabled.programs.spicetify = {
-    enable = true;
-
-    theme = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system}.themes.catppuccin;
-  };
+  home.ifEnabled.programs.spicetify.enable = true;
 }
