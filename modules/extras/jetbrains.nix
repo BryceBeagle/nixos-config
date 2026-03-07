@@ -9,10 +9,10 @@ delib.module {
   options = delib.singleEnableOption false;
 
   myconfig.ifEnabled = {
-    programs.unfree.allowUnfree = ["idea-ultimate"];
+    programs.unfree.allowUnfree = ["idea"];
   };
 
   home.ifEnabled.home.packages = with pkgs; [
-    jetbrains.idea-ultimate
+    jetbrains.idea
   ];
 }

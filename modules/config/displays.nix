@@ -15,8 +15,8 @@ delib.module {
   ];
 
   home.always = {myconfig, ...}: {
-    programs.niri = lib.mkIf myconfig.desktop-environment.niri.enable {
-      settings.outputs = {
+    programs = lib.optionalAttrs myconfig.desktop-environment.niri.enable {
+      niri.settings.outputs = {
         # Framework 16 internal display
         "BOE 0x0BC9 Unknown" = {
           scale = 1; # Defaults to 1.5 for some reason

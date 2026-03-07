@@ -19,8 +19,8 @@ delib.module {
       };
     };
 
-    programs.niri = lib.mkIf myconfig.desktop-environment.niri.enable {
-      settings.input.keyboard = {
+    programs = lib.optionalAttrs myconfig.desktop-environment.niri.enable {
+      niri.settings.input.keyboard = {
         # Initial delay (ms)
         repeat-delay = 300;
         # Characters per second
