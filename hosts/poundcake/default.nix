@@ -18,8 +18,7 @@ delib.host {
     impermanence = {
       enable = true;
 
-      system.persistRoot = "/persist";
-      user.persistRoot = "/persist/home/ignormies";
+      persistRoot = "/persist";
     };
 
     desktop-environment = {

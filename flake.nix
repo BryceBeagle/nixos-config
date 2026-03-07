@@ -6,8 +6,6 @@
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
     impermanence.url = "github:nix-community/impermanence";
 
-    nix-colors.url = "github:misterio77/nix-colors";
-
     darwin = {
       url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,9 +29,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
-      # Locked to this commit temporarily due to:
-      # https://github.com/nix-community/nixvim/pull/4025#issuecomment-3615622106
-      url = "github:nix-community/nixvim?rev=f15023fcccf34fcae4f86fdaafc576ef027b47e0";
+      url = "github:nix-community/nixvim"; 
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix = {
@@ -41,7 +37,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     vicinae-extensions = {
-      url = "github:vicinaehq/extensions";
+      # Pinning due to
+      # https://github.com/vicinaehq/extensions/issues/173
+      url = "github:vicinaehq/extensions?rev=cf30b80f619282d45b1748eb76e784a4f875bb01";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

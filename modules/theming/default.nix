@@ -11,25 +11,10 @@ delib.module {
   options = delib.singleEnableOption true;
 
   home.always.imports = [
-    inputs.nix-colors.homeManagerModules.default
     inputs.spicetify-nix.homeManagerModules.default
   ];
 
   home.ifEnabled = {myconfig, ...}: {
-    gtk = {
-      enable = true;
-
-      theme = let
-        # TODO: Move this `colorSchemes` attr to a higher scope
-        colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
-      in {
-        name = colorScheme.slug;
-        package = (
-          inputs.nix-colors.lib-contrib {pkgs = pkgs;}
-        ).gtkThemeFromScheme {scheme = colorScheme;};
-      };
-    };
-
     programs.ghostty = lib.mkIf myconfig.programs.terminal.ghostty.enable {
       settings.theme = "Catppuccin Macchiato";
     };
