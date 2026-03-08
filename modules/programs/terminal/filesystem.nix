@@ -4,29 +4,15 @@
   ...
 }: let
   terminalPrograms = with pkgs; [
-    cargo
-    curl
-    dive
-    jq
-    just
-    ripgrep
-    rustc
-    unzip
-    usbutils
-    wget
+    erdtree
+    eza
+    tree
   ];
 in
   delib.module {
     name = "programs.terminal";
 
-    options = delib.singleEnableOption true;
-
-    # Default terminal configuration for other users
     nixos.ifEnabled = {
-      # TTY font
-      console.font = "Lat2-Terminus16";
-
-      # Other assorted, globally installed packages
       environment.systemPackages = terminalPrograms;
     };
 
