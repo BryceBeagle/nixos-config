@@ -56,20 +56,7 @@ delib.module {
       lualine.enable = true;
       noice.enable = true;
       nvim-autopairs.enable = true;
+      tiny-inline-diagnostic.enable = true;
     };
-
-    extraPlugins = [
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "tiny-inline-diagnostic";
-        src = builtins.fetchGit {
-          url = "https://github.com/rachartier/tiny-inline-diagnostic.nvim";
-          rev = "cd401038de4cbae37651cfe02510294ccf5cdc98";
-        };
-      })
-    ];
-
-    extraConfigLuaPost = ''
-      require("tiny-inline-diagnostic").setup()
-    '';
   };
 }
