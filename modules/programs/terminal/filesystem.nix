@@ -1,6 +1,5 @@
 {
   delib,
-  lib,
   pkgs,
   ...
 }: let
