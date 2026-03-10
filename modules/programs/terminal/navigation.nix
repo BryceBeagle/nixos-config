@@ -14,6 +14,8 @@ in
           cd = {
             body = ''
               builtin cd $argv
+              or return
+
               ${lib.getExe pkgs.eza} --icons --group-directories-first
             '';
             wraps = "cd";
