@@ -1,8 +1,16 @@
-{delib, ...}:
+{
+  delib,
+  inputs,
+  ...
+}:
 delib.module {
   name = "programs.spotify";
 
   options = delib.singleEnableOption false;
+
+  home.always.imports = [
+    inputs.spicetify-nix.homeManagerModules.default
+  ];
 
   myconfig.ifEnabled = {
     impermanence.user.directories = [

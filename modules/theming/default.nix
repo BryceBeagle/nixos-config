@@ -1,8 +1,6 @@
 {
   delib,
   inputs,
-  lib,
-  pkgs,
   ...
 }:
 delib.module {
@@ -11,24 +9,16 @@ delib.module {
   options = delib.singleEnableOption true;
 
   home.always.imports = [
-    inputs.spicetify-nix.homeManagerModules.default
+    inputs.stylix.homeModules.stylix
   ];
 
-  home.ifEnabled = {myconfig, ...}: {
-    programs.ghostty = lib.mkIf myconfig.programs.terminal.ghostty.enable {
-      settings.theme = "Catppuccin Macchiato";
-    };
+  home.ifEnabled = {
+    stylix = {
+      enable = true;
 
-    programs.nixvim = lib.mkIf myconfig.programs.neovim.enable {
-      colorschemes.catppuccin = {
-        enable = true;
-
-        settings.flavour = "macchiato";
-      };
-    };
-
-    programs.spicetify = lib.mkIf myconfig.programs.spotify.enable {
-      theme = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system}.themes.catppuccin;
+      # Unfortunately, seems to not do anything
+      # https://github.com/BryceBeagle/nixos-config/issues/351
+      targets.firefox.profileNames = ["default"];
     };
   };
 }
