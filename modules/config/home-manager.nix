@@ -13,13 +13,6 @@ delib.module {
     inputs.home-manager.nixosModules.home-manager
   ];
 
-  # This does not use `home.ifEnabled` as that is per-user, but this is configuring
-  # `home-manager` itself
-  #
-  # https://discourse.nixos.org/t/34506
-  nixos.ifEnabled.home-manager.useGlobalPkgs = true;
-  darwin.ifEnabled.home-manager.useGlobalPkgs = true;
-
   home.ifEnabled = {
     programs.home-manager.enable = true;
 
