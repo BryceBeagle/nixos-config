@@ -11,12 +11,14 @@ in
     home.ifEnabled = {myconfig, ...}: {
       programs.fish = lib.mkIf myconfig.programs.terminal.fish.enable {
         functions = {
+          # Always ls/eza after cd-ing.
+          # Note: this uses the eza alias defined in ./filesystem.nix
           cd = {
             body = ''
               builtin cd $argv
               or return
 
-              ${lib.getExe pkgs.eza} --icons --group-directories-first
+              eza
             '';
             wraps = "cd";
           };

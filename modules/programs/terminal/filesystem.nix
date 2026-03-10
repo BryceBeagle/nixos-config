@@ -1,11 +1,11 @@
 {
   delib,
+  lib,
   pkgs,
   ...
 }: let
   terminalPrograms = with pkgs; [
     erdtree
-    eza
     tree
   ];
 in
@@ -18,4 +18,12 @@ in
 
     # Other assorted, globally installed packages
     darwin.ifEnabled.environment.systemPackages = terminalPrograms;
+
+    home.ifEnabled = {
+      programs.eza.enable = true;
+
+      home.shellAliases = {
+        eza = "eza --icons --group-directories-first";
+      };
+    };
   }
