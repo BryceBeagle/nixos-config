@@ -24,6 +24,7 @@ in
 
       home.shellAliases = {
         eza = "eza --icons --group-directories-first";
+        ls = "eza";
       };
     };
   }
