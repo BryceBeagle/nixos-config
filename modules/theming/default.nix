@@ -8,6 +8,10 @@ delib.module {
 
   options = delib.singleEnableOption true;
 
+  nixos.always.imports = [
+    inputs.stylix.nixosModules.stylix
+  ];
+
   home.always.imports = [
     inputs.stylix.homeModules.stylix
   ];
