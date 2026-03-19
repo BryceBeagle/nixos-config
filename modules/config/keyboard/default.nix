@@ -7,6 +7,15 @@
 delib.module {
   name = "keyboard";
 
+  darwin.always.system.defaults = {
+    NSGlobalDomain = {
+      # Initial delay (15ms per)
+      InitialKeyRepeat = 10;
+      # Delay between inputs (15ms per)
+      KeyRepeat = 1;
+    };
+  };
+
   home.always = {myconfig, ...}: {
     dconf = lib.mkIf myconfig.desktop-environment.gnome.enable {
       settings = with inputs.home-manager.lib.hm.gvariant; {
