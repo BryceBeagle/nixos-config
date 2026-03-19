@@ -21,7 +21,7 @@ delib.module {
       settings = with inputs.home-manager.lib.hm.gvariant; {
         "org/gnome/desktop/peripherals/keyboard" = {
           # Initial delay (ms)
-          delay = mkUint32 300;
+          delay = mkUint32 150;
           # Delay between inputs (ms)
           repeat-interval = mkUint32 15;
         };
@@ -31,7 +31,7 @@ delib.module {
     programs = lib.optionalAttrs myconfig.desktop-environment.niri.enable {
       niri.settings.input.keyboard = {
         # Initial delay (ms)
-        repeat-delay = 300;
+        repeat-delay = 150;
         # Characters per second
         repeat-rate = 67;
       };
