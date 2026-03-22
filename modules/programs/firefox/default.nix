@@ -122,6 +122,10 @@ delib.module {
 
         # Allow extensions to be auto-enabled
         "extensions.autoDisableScopes" = 0;
+
+        # Preview features
+        # Side-by-side windows in the same tab
+        "browser.tabs.splitView.enabled" = true;
       };
     };
   };
