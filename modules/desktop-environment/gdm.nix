@@ -1,7 +1,6 @@
 {
   config,
   delib,
-  lib,
   ...
 }:
 delib.module {

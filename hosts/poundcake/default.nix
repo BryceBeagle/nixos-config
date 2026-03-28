@@ -24,6 +24,8 @@ delib.host {
     desktop-environment = {
       enable = true;
 
+      displays.builtinDisplay = "BOE 0x0BC9 Unknown";
+
       gnome.enable = true;
       niri.enable = true;
 
