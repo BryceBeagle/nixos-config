@@ -25,6 +25,7 @@ delib.module {
       })
       (lib.mkIf myconfig.desktop-environment.niri.enable {
         programs.niri.settings.input.touchpad = {
+          click-method = "clickfinger";
           dwt = true;
           natural-scroll = false;
         };
