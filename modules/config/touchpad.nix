@@ -24,7 +24,10 @@ delib.module {
         };
       })
       (lib.mkIf myconfig.desktop-environment.niri.enable {
-        programs.niri.settings.input.touchpad.natural-scroll = false;
+        programs.niri.settings.input.touchpad = {
+          dwt = true;
+          natural-scroll = false;
+        };
       })
     ];
 }
