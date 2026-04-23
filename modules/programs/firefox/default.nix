@@ -1,6 +1,5 @@
 {
   delib,
-  inputs,
   pkgs,
   ...
 }:
@@ -11,10 +10,8 @@ delib.module {
 
   myconfig.ifEnabled.impermanence.user = {
     directories = [
+      ".mozilla/firefox/default/browser-extension-data/"
       ".mozilla/firefox/default/extensions/"
-      # Extension data is stored here, but also IndexedDB data for random websites
-      # See https://github.com/BryceBeagle/nixos-config/issues/151
-      ".mozilla/firefox/default/storage/default/"
     ];
     files = [
       ".mozilla/firefox/default/cookies.sqlite"
