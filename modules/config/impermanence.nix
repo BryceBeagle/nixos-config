@@ -53,6 +53,51 @@ delib.module {
         ]
       );
     };
+
+    # Super important until https://github.com/NixOS/nixpkgs/pull/435781 is default!
+    # Otherwise, no initrd service will be created
+    boot.initrd.systemd.enable = true;
+
+    boot.initrd.systemd.services.wipe-btrfs-root = {
+      description = "Wipe root btrfs subvolume for impermanence";
+      wantedBy = ["initrd.target"];
+
+      # This must match the actual btfrs device label (it's also used in the script)
+      # TODO: Encode/pass this as configuration
+      after = ["dev-disk-by\\x2dlabel-nixos.device"];
+      requires = ["dev-disk-by\\x2dlabel-nixos.device"];
+
+      # Must happen after the device is ready, but before /sysroot is mounted.
+      before = ["sysroot.mount"];
+
+      unitConfig.DefaultDependencies = "no";
+      serviceConfig.Type = "oneshot";
+
+      script = ''
+        mkdir /btrfs_tmp
+        mount /dev/disk/by-label/nixos /btrfs_tmp
+        if [[ -e /btrfs_tmp/@ ]]; then
+            mkdir -p /btrfs_tmp/old_roots
+            timestamp=$(date --date="@$(stat -c %Y /btrfs_tmp/@)" "+%Y-%m-%-d_%H:%M:%S")
+            mv /btrfs_tmp/@ "/btrfs_tmp/old_roots/$timestamp"
+        fi
+
+        delete_subvolume_recursively() {
+            IFS=$'\n'
+            for i in $(btrfs subvolume list -o "$1" | cut -f 9- -d ' '); do
+                delete_subvolume_recursively "/btrfs_tmp/$i"
+            done
+            btrfs subvolume delete "$1"
+        }
+
+        for i in $(find /btrfs_tmp/old_roots/ -maxdepth 1 -mtime +30); do
+            delete_subvolume_recursively "$i"
+        done
+
+        btrfs subvolume create /btrfs_tmp/@
+        umount /btrfs_tmp
+      '';
+    };
   };
 
   home.ifEnabled = {cfg, ...}: {
