@@ -32,3 +32,15 @@ echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
 
 nix run home-manager/master -- --flake . switch
 ```
+
+# Updating flake inputs and packages
+
+```shell
+nix flake update
+```
+
+Or, to update a single input
+
+```shell
+nix flake update nixvim
+```

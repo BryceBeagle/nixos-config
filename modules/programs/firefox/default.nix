@@ -10,26 +10,26 @@ delib.module {
 
   myconfig.ifEnabled.impermanence.user = {
     directories = [
-      ".mozilla/firefox/default/browser-extension-data/"
-      ".mozilla/firefox/default/extensions/"
+      ".config/mozilla/firefox/default/browser-extension-data/"
+      ".config/mozilla/firefox/default/extensions/"
     ];
     files = [
-      ".mozilla/firefox/default/cookies.sqlite"
-      ".mozilla/firefox/default/favicons.sqlite"
+      ".config/mozilla/firefox/default/cookies.sqlite"
+      ".config/mozilla/firefox/default/favicons.sqlite"
       # Permissions and zoom levels for each site
-      ".mozilla/firefox/default/permissions.sqlite"
-      ".mozilla/firefox/default/content-prefs.sqlite"
+      ".config/mozilla/firefox/default/permissions.sqlite"
+      ".config/mozilla/firefox/default/content-prefs.sqlite"
       # Browser history and bookmarks
-      ".mozilla/firefox/default/places.sqlite"
+      ".config/mozilla/firefox/default/places.sqlite"
       # Contains extension GUIDs that need to match entries in
-      # .mozilla/firefox/default/storage/default (persisted above)
-      ".mozilla/firefox/default/prefs.js"
+      # .config/mozilla/firefox/default/storage/default (persisted above)
+      ".config/mozilla/firefox/default/prefs.js"
       # I guess this is useful?
       # https://bugzilla.mozilla.org/show_bug.cgi?id=1511384
       # https://developer.mozilla.org/en-US/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria
-      ".mozilla/firefox/default/storage.sqlite"
+      ".config/mozilla/firefox/default/storage.sqlite"
       # Extension configuration
-      ".mozilla/firefox/default/extension-settings.json"
+      ".config/mozilla/firefox/default/extension-settings.json"
     ];
   };
 
@@ -45,6 +45,11 @@ delib.module {
         };
       };
     };
+
+    # TODO: This becomes the default when home.stateVersion >= 26.05
+    # We should upgrade and remove this
+    # https://github.com/nix-community/home-manager/pull/9170
+    configPath = ".config/mozilla/firefox";
 
     profiles.default = {
       # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.firefox.profiles._name_.containersForce
