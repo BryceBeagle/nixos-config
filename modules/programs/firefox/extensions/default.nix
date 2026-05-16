@@ -16,6 +16,7 @@ delib.module {
       packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
         bitwarden
         ublock-origin
+        vimium
       ];
     };
   };
