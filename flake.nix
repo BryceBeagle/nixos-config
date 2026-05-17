@@ -6,6 +6,10 @@
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
     impermanence.url = "github:nix-community/impermanence";
 
+    dank-material-shell = {
+      url = "github:AvengeMedia/DankMaterialShell/stable";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     darwin = {
       url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
