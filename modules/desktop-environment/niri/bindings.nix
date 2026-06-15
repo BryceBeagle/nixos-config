@@ -9,6 +9,9 @@ delib.module {
 
   home.ifEnabled.programs.niri = {
     settings = {
+      # Hide dialog showing shortcuts at startup
+      hotkey-overlay.skip-at-startup = true;
+
       binds = {
         # Defaults:
         # https://github.com/YaLTeR/niri/blob/v25.11/resources/default-config.kdl#L349
