@@ -128,6 +128,9 @@ delib.module {
         # Preview features
         # Side-by-side windows in the same tab
         "browser.tabs.splitView.enabled" = true;
+
+        # Disable middleclick paste
+        "middlemouse.paste" = false;
       };
     };
   };

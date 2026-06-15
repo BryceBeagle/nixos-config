@@ -28,4 +28,11 @@ delib.module {
       package = pkgs.niri;
     };
   };
+
+  home.ifEnabled.programs.niri = {
+    settings = {
+      # Disable middleclick paste
+      clipboard.disable-primary = true;
+    };
+  };
 }
