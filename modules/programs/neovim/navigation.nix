@@ -30,13 +30,13 @@ delib.module {
       {
         mode = ["n" "x"];
         key = "s";
-        action = ":lua require('flash').jump()<CR>";
+        action = "<cmd>lua require('flash').jump()<CR>";
         options.desc = "flash";
       }
       {
         mode = ["n" "x"];
         key = "S";
-        action = ":lua require('flash').treesitter()<CR>";
+        action = "<cmd>lua require('flash').treesitter()<CR>";
         options.desc = "flash Treesitter";
       }
     ];
